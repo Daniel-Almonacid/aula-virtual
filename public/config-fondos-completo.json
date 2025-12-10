@@ -1,0 +1,240 @@
+{
+  "global": {
+    "navbar": {
+      "type": "gradient",
+      "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      "image": "",
+      "video": ""
+    }
+  },
+  "index": {
+    "hero": {
+      "type": "gradient",
+      "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      "image": "",
+      "video": ""
+    },
+    "body": {
+      "type": "color",
+      "color": "#f5f7fa",
+      "image": "",
+      "video": ""
+    }
+  },
+  "seleccionar-usuario": {
+    "background": {
+      "type": "gradient",
+      "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      "image": "",
+      "video": ""
+    }
+  },
+  "login-admin": {
+    "background": {
+      "type": "gradient",
+      "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      "image": "",
+      "video": ""
+    }
+  },
+  "login-estudiante": {
+    "background": {
+      "type": "gradient",
+      "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      "image": "",
+      "video": ""
+    }
+  },
+  "dashboard-admin": {
+    "navbar": {
+      "type": "gradient",
+      "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      "image": ""
+    },
+    "body": {
+      "type": "color",
+      "color": "#f5f7fa",
+      "image": "",
+      "video": ""
+    },
+    "sidebar": {
+      "type": "color",
+      "color": "#ffffff",
+      "image": ""
+    }
+  },
+  "cursos-disponibles": {
+    "hero": {
+      "type": "gradient",
+      "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+      "image": "",
+      "video": ""
+    },
+    "body": {
+      "type": "color",
+      "color": "#f5f7fa",
+      "image": "",
+      "video": ""
+    },
+    "tarjetas": {
+      "sketchup": {
+        "type": "gradient",
+        "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        "emoji": "🎨",
+        "image": "",
+        "video": ""
+      },
+      "opencutilist": {
+        "type": "gradient",
+        "gradient": "linear-gradient(135deg, #764ba2 0%, #667eea 100%)",
+        "emoji": "🪚",
+        "image": "",
+        "video": ""
+      },
+      "msproject": {
+        "type": "gradient",
+        "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        "emoji": "📊",
+        "image": "",
+        "video": ""
+      },
+      "canva": {
+        "type": "gradient",
+        "gradient": "linear-gradient(135deg, #764ba2 0%, #667eea 100%)",
+        "emoji": "🎨",
+        "image": "",
+        "video": ""
+      },
+      "electricas": {
+        "type": "gradient",
+        "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        "emoji": "⚡",
+        "image": "",
+        "video": ""
+      },
+      "tierra": {
+        "type": "gradient",
+        "gradient": "linear-gradient(135deg, #764ba2 0%, #667eea 100%)",
+        "emoji": "🌍",
+        "image": "",
+        "video": ""
+      }
+    }
+  },
+  "curso-individual": {
+    "sketchup": {
+      "hero": {
+        "type": "gradient",
+        "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        "image": "",
+        "video": ""
+      },
+      "body": {
+        "type": "color",
+        "color": "#f5f7fa",
+        "image": "",
+        "video": ""
+      },
+      "sidebar": {
+        "type": "color",
+        "color": "#ffffff",
+        "image": ""
+      }
+    },
+    "opencutilist": {
+      "hero": {
+        "type": "gradient",
+        "gradient": "linear-gradient(135deg, #764ba2 0%, #667eea 100%)",
+        "image": "",
+        "video": ""
+      },
+      "body": {
+        "type": "color",
+        "color": "#f5f7fa",
+        "image": "",
+        "video": ""
+      },
+      "sidebar": {
+        "type": "color",
+        "color": "#ffffff",
+        "image": ""
+      }
+    },
+    "msproject": {
+      "hero": {
+        "type": "gradient",
+        "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        "image": "",
+        "video": ""
+      },
+      "body": {
+        "type": "color",
+        "color": "#f5f7fa",
+        "image": "",
+        "video": ""
+      },
+      "sidebar": {
+        "type": "color",
+        "color": "#ffffff",
+        "image": ""
+      }
+    },
+    "canva": {
+      "hero": {
+        "type": "gradient",
+        "gradient": "linear-gradient(135deg, #764ba2 0%, #667eea 100%)",
+        "image": "",
+        "video": ""
+      },
+      "body": {
+        "type": "color",
+        "color": "#f5f7fa",
+        "image": "",
+        "video": ""
+      },
+      "sidebar": {
+        "type": "color",
+        "color": "#ffffff",
+        "image": ""
+      }
+    },
+    "electricas": {
+      "hero": {
+        "type": "gradient",
+        "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        "image": "",
+        "video": ""
+      },
+      "body": {
+        "type": "color",
+        "color": "#f5f7fa",
+        "image": "",
+        "video": ""
+      },
+      "sidebar": {
+        "type": "color",
+        "color": "#ffffff",
+        "image": ""
+      }
+    },
+    "tierra": {
+      "hero": {
+        "type": "gradient",
+        "gradient": "linear-gradient(135deg, #764ba2 0%, #667eea 100%)",
+        "image": "",
+        "video": ""
+      },
+      "body": {
+        "type": "color",
+        "color": "#f5f7fa",
+        "image": "",
+        "video": ""
+      },
+      "sidebar": {
+        "type": "color",
+        "color": "#ffffff",
+        "image": ""
+      }
+    }
+  }
+}

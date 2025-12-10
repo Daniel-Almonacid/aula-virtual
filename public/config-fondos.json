@@ -1,0 +1,44 @@
+{
+  "sketchup": {
+    "type": "gradient",
+    "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    "emoji": "🎨",
+    "image": "",
+    "video": ""
+  },
+  "opencutilist": {
+    "type": "gradient",
+    "gradient": "linear-gradient(135deg, #764ba2 0%, #667eea 100%)",
+    "emoji": "🪚",
+    "image": "",
+    "video": ""
+  },
+  "msproject": {
+    "type": "gradient",
+    "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    "emoji": "📊",
+    "image": "",
+    "video": ""
+  },
+  "canva": {
+    "type": "gradient",
+    "gradient": "linear-gradient(135deg, #764ba2 0%, #667eea 100%)",
+    "emoji": "🎨",
+    "image": "",
+    "video": ""
+  },
+  "electricas": {
+    "type": "gradient",
+    "gradient": "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+    "emoji": "⚡",
+    "image": "",
+    "video": ""
+  },
+  "tierra": {
+    "type": "gradient",
+    "gradient": "linear-gradient(135deg, #764ba2 0%, #667eea 100%)",
+    "emoji": "🌍",
+    "image": "",
+    "video": ""
+  }
+}

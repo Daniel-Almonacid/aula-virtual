@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistemas de Puesta a Tierra - Aula Virtual</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f5f7fa;
+        }
+
+        .top-nav {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .top-nav h1 {
+            font-size: 1.5rem;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .btn {
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-secondary {
+            background: rgba(255,255,255,0.2);
+            color: white;
+            border: 1px solid white;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        .course-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .course-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .course-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+        }
+
+        .content-layout {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+            margin-top: -3rem;
+        }
+
+        .sidebar {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            height: fit-content;
+            position: sticky;
+            top: 2rem;
+        }
+
+        .sidebar h3 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .module-item {
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .module-item:hover {
+            background: #f8f9fa;
+        }
+
+        .module-item.active {
+            background: #e8f0fe;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .module-item.completed {
+            color: #28a745;
+        }
+
+        .main-content {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .video-container {
+            background: #000;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            aspect-ratio: 16/9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .content-section {
+            margin-bottom: 2rem;
+        }
+
+        .content-section h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .content-section p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .progress-section {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .progress-bar {
+            background: #e0e0e0;
+            height: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 1rem 0;
+        }
+
+        .progress-fill {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 100%;
+            border-radius: 10px;
+            transition: width 0.3s;
+        }
+
+        .lesson-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 2px solid #f0f0f0;
+        }
+
+        .btn-nav {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-prev {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-next {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-nav:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .resources {
+            background: #fff3cd;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid #ffc107;
+        }
+
+        .resources h4 {
+            color: #856404;
+            margin-bottom: 1rem;
+        }
+
+        .resource-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem;
+            color: #856404;
+            text-decoration: none;
+        }
+
+        .resource-item:hover {
+            text-decoration: underline;
+        }
+
+        .safety-warning {
+            background: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .safety-warning h4 {
+            color: #721c24;
+            margin-bottom: 0.5rem;
+        }
+
+        .safety-warning p {
+            color: #721c24;
+        }
+
+        .normas-box {
+            background: #d1ecf1;
+            border-left: 4px solid #0c5460;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+        }
+
+        .normas-box h4 {
+            color: #0c5460;
+            margin-bottom: 1rem;
+        }
+
+        .normas-box ul {
+            color: #0c5460;
+            margin-left: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .content-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .sidebar {
+                position: relative;
+                top: 0;
+            }
+
+            .course-header h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-nav">
+        <h1>🌍 Sistemas de Puesta a Tierra</h1>
+        <div class="nav-actions">
+            <a href="../login-estudiante.html" class="btn btn-secondary">Cerrar Sesión</a>
+        </div>
+    </div>
+
+    <div class="course-header">
+        <h2>Instalación, Medición y Certificación de Sistemas de Puesta a Tierra</h2>
+        <p>Domina los sistemas de puesta a tierra según normativas profesionales</p>
+    </div>
+
+    <div class="container">
+        <div class="content-layout">
+            <aside class="sidebar">
+                <h3>📚 Contenido del Curso</h3>
+                <div class="module-item completed">
+                    ✅ Módulo 1: Fundamentos SPT
+                </div>
+                <div class="module-item completed">
+                    ✅ Módulo 2: Normativa Nacional e Internacional
+                </div>
+                <div class="module-item active">
+                    ▶️ Módulo 3: Diseño de Sistemas SPT
+                </div>
+                <div class="module-item">
+                    📄 Módulo 4: Instalación de Electrodos
+                </div>
+                <div class="module-item">
+                    📄 Módulo 5: Medición de Resistencia
+                </div>
+                <div class="module-item">
+                    📄 Módulo 6: Equipos de Medición
+                </div>
+                <div class="module-item">
+                    📄 Módulo 7: Interpretación de Resultados
+                </div>
+                <div class="module-item">
+                    📄 Módulo 8: Certificación y Documentación
+                </div>
+                <div class="module-item">
+                    📄 Módulo 9: Mantenimiento SPT
+                </div>
+                <div class="module-item">
+                    📄 Módulo 10: Proyecto de Certificación
+                </div>
+            </aside>
+
+            <main class="main-content">
+                <div class="safety-warning">
+                    <h4>⚠️ ADVERTENCIA CRÍTICA DE SEGURIDAD</h4>
+                    <p>
+                        Los sistemas de puesta a tierra son esenciales para la seguridad eléctrica. 
+                        Un sistema deficiente puede causar electrocución, incendios y daños en equipos. 
+                        Este curso es de nivel avanzado y requiere conocimientos previos de electricidad.
+                    </p>
+                </div>
+
+                <div class="progress-section">
+                    <h3>Tu Progreso en el Curso</h3>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 25%"></div>
+                    </div>
+                    <p><strong>25% completado</strong> - 2 de 10 módulos terminados</p>
+                </div>
+
+                <div class="content-section">
+                    <h3>Módulo 3: Diseño de Sistemas de Puesta a Tierra</h3>
+                    
+                    <div class="video-container">
+                        🎥 Video: Cálculo y Diseño de Sistemas SPT
+                        <br>
+                        <small>(Aquí iría el reproductor de video)</small>
+                    </div>
+
+                    <h4>Descripción de la Lección</h4>
+                    <p>
+                        El diseño apropiado de un sistema de puesta a tierra es fundamental para garantizar 
+                        la seguridad y el correcto funcionamiento de las instalaciones eléctricas. 
+                        Aprende a calcular, dimensionar y diseñar sistemas SPT que cumplan con todas las 
+                        normativas vigentes y proporcionen la máxima protección.
+                    </p>
+
+                    <div class="normas-box">
+                        <h4>📋 Normativas Aplicables</h4>
+                        <ul>
+                            <li>Código Nacional de Electricidad (CNE)</li>
+                            <li>IEEE Std 80 - Diseño de SPT</li>
+                            <li>NEC (National Electrical Code)</li>
+                            <li>IEC 60364 - Instalaciones Eléctricas</li>
+                        </ul>
+                    </div>
+
+                    <h4>Objetivos de Aprendizaje</h4>
+                    <ul style="color: #666; line-height: 1.8; margin-left: 2rem;">
+                        <li>Calcular la resistividad del suelo</li>
+                        <li>Determinar el número y tipo de electrodos necesarios</li>
+                        <li>Diseñar la malla de tierra según normativa</li>
+                        <li>Calcular la resistencia de puesta a tierra esperada</li>
+                        <li>Elaborar planos técnicos del sistema SPT</li>
+                    </ul>
+
+                    <h4>Contenido de la Lección</h4>
+                    <p>
+                        1. <strong>Análisis del Terreno</strong> - Estudio de resistividad del suelo<br>
+                        2. <strong>Cálculos de SPT</strong> - Fórmulas y métodos de cálculo<br>
+                        3. <strong>Selección de Electrodos</strong> - Tipos y características<br>
+                        4. <strong>Diseño de Malla</strong> - Configuración y distribución<br>
+                        5. <strong>Conexiones y Conductores</strong> - Dimensionamiento correcto<br>
+                        6. <strong>Planos Técnicos</strong> - Documentación del diseño<br>
+                    </p>
+
+                    <h4>Ejemplo Práctico</h4>
+                    <p>
+                        En esta lección realizaremos el diseño completo de un sistema de puesta a tierra 
+                        para una vivienda unifamiliar, considerando:
+                    </p>
+                    <ul style="color: #666; line-height: 1.8; margin-left: 2rem; margin-bottom: 1rem;">
+                        <li>Carga total instalada: 10 kW</li>
+                        <li>Resistividad del suelo: 150 Ω·m</li>
+                        <li>Resistencia objetivo: &lt; 25 Ω</li>
+                        <li>Tipo de sistema: Jabalinas + malla perimetral</li>
+                    </ul>
+                </div>
+
+                <div class="resources">
+                    <h4>📎 Recursos Descargables</h4>
+                    <a href="#" class="resource-item">📄 Guía de Diseño de SPT</a>
+                    <a href="#" class="resource-item">📊 Hoja de Cálculo para SPT</a>
+                    <a href="#" class="resource-item">📐 Plantillas de Planos</a>
+                    <a href="#" class="resource-item">📋 Tabla de Resistividades</a>
+                    <a href="#" class="resource-item">🎯 Ejercicio: Diseña tu SPT</a>
+                </div>
+
+                <div class="lesson-navigation">
+                    <button class="btn-nav btn-prev">← Lección Anterior</button>
+                    <button class="btn-nav btn-next">Marcar como Completo y Continuar →</button>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.module-item').forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.module-item').forEach(i => i.classList.remove('active'));
+                this.classList.add('active');
+                alert('Cargando módulo...');
+            });
+        });
+
+        document.querySelector('.btn-next').addEventListener('click', function() {
+            alert('¡Módulo completado! Avanzando al siguiente módulo...');
+        });
+
+        document.querySelector('.btn-prev').addEventListener('click', function() {
+            alert('Regresando al módulo anterior...');
+        });
+
+        document.querySelectorAll('.resource-item').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                alert('Descargando recurso...');
+            });
+        });
+    </script>
+</body>
+</html>

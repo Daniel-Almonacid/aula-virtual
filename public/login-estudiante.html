@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Estudiante - Aula Virtual</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('../assets/images/fondos/login/para_fondo_3.jpeg') center center;
+            background-size: cover;
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Overlay para mejorar legibilidad */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 3rem 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+            width: 90%;
+            max-width: 420px;
+            position: relative;
+            z-index: 1;
+            backdrop-filter: blur(10px);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .login-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .login-header h1 {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .login-header p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.9rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: white;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 1rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .btn-login:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-login:active {
+            transform: translateY(0);
+        }
+
+        .alert {
+            padding: 0.9rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            display: none;
+            animation: slideDown 0.3s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .alert-error {
+            background-color: #fee;
+            color: #c33;
+            border: 1px solid #fcc;
+        }
+
+        .back-link {
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+
+        .back-link a {
+            color: #667eea;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 2rem 1.5rem;
+            }
+
+            .login-header h1 {
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <span class="login-icon">🎓</span>
+            <h1>Acceso de Estudiante</h1>
+            <p>Ingresa tu contraseña de estudiante para acceder a todos tus cursos disponibles</p>
+        </div>
+
+        <div id="alert" class="alert"></div>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="password">Contraseña de Estudiante</label>
+                <input type="password" id="password" placeholder="Ingresa tu contraseña" required autofocus>
+            </div>
+
+            <button type="submit" class="btn-login">Acceder a Mis Cursos</button>
+        </form>
+
+        <div class="back-link">
+            <a href="seleccionar-usuario.html">← Volver a selección de usuario</a>
+        </div>
+    </div>
+
+    <script>
+        const correctPassword = 'estudiante123';
+
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const password = document.getElementById('password').value;
+            const alertDiv = document.getElementById('alert');
+            
+            if (password === correctPassword) {
+                window.location.href = 'cursos-disponibles.html';
+            } else {
+                alertDiv.className = 'alert alert-error';
+                alertDiv.textContent = 'Contraseña incorrecta. Intenta de nuevo.';
+                alertDiv.style.display = 'block';
+                
+                document.getElementById('password').value = '';
+                document.getElementById('password').focus();
+                
+                setTimeout(() => {
+                    alertDiv.style.display = 'none';
+                }, 3000);
+            }
+        });
+
+        document.getElementById('password').addEventListener('input', function() {
+            document.getElementById('alert').style.display = 'none';
+        });
+    </script>
+</body>
+</html>

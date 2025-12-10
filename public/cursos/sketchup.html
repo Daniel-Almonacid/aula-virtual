@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SketchUp para principiantes PRO - Aula Virtual</title>
+    <link rel="icon" type="image/png" href="../../assets/images/logo/favicon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        /* Navbar */
+        nav {
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .btn-back {
+            background: white;
+            color: #667eea;
+            padding: 0.7rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .btn-back:hover {
+            background: #f0f0f0;
+            transform: scale(1.05);
+        }
+
+        .course-title-nav {
+            color: white;
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            background: white;
+            padding: 1.5rem 2rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .progress-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .progress-text {
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .progress-percentage {
+            color: #667eea;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            width: 0%;
+            transition: width 0.5s ease;
+            border-radius: 10px;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1400px;
+            margin: 2rem auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+
+        /* Video Section */
+        .video-section {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+
+        .video-container iframe,
+        .video-container video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-info h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .video-info p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .video-controls {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: #667eea;
+            padding: 0.8rem 1.5rem;
+            border: 2px solid #667eea;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-section {
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .sidebar-section h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #667eea;
+        }
+
+        /* Modules List */
+        .module-item {
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .module-item:hover {
+            background: #e9ecef;
+            transform: translateX(5px);
+        }
+
+        .module-item.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .module-icon {
+            font-size: 1.5rem;
+        }
+
+        .module-info {
+            flex: 1;
+        }
+
+        .module-title {
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .module-duration {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Resources */
+        .resource-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s;
+        }
+
+        .resource-item:hover {
+            background: #e9ecef;
+        }
+
+        .resource-icon {
+            font-size: 2rem;
+        }
+
+        .resource-info {
+            flex: 1;
+        }
+
+        .resource-name {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.3rem;
+        }
+
+        .resource-size {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .btn-download {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+        }
+
+        .btn-download:hover {
+            transform: scale(1.05);
+            box-shadow: 0 3px 10px rgba(102, 126, 234, 0.4);
+        }
+
+        /* Evaluation */
+        .evaluation-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .evaluation-card h4 {
+            margin-bottom: 1rem;
+        }
+
+        .evaluation-score {
+            font-size: 3rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+
+        .btn-evaluation {
+            background: white;
+            color: #667eea;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            width: 100%;
+            transition: all 0.3s;
+        }
+
+        .btn-evaluation:hover {
+            transform: scale(1.05);
+        }
+
+        .btn-evaluation:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+            <a href="../cursos-disponibles.html" class="btn-back">← Volver a Mis Cursos</a>
+            <div class="course-title-nav">SketchUp para principiantes PRO</div>
+        </div>
+    </nav>
+
+    <div class="progress-container">
+        <div class="progress-header">
+            <span class="progress-text">Tu Progreso en el Curso</span>
+            <span class="progress-percentage" id="progressPercentage">0%</span>
+        </div>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Main Video Section -->
+        <div class="video-section">
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+            <div class="video-info">
+                <h2>Módulo 1: Introducción a SketchUp</h2>
+                <p>En este módulo aprenderás los conceptos básicos de SketchUp, la interfaz del programa y las herramientas fundamentales para comenzar a diseñar en 3D.</p>
+                <p><strong>Duración:</strong> 15 minutos</p>
+                <p><strong>Nivel:</strong> Principiante</p>
+            </div>
+
+            <div class="video-controls">
+                <button class="btn-primary" onclick="markAsCompleted()">✓ Marcar como Completado</button>
+                <button class="btn-secondary">📝 Hacer una Pregunta</button>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Modules -->
+            <div class="sidebar-section">
+                <h3>📚 Contenido del Curso</h3>
+                <div class="module-item active">
+                    <span class="module-icon">▶</span>
+                    <div class="module-info">
+                        <div class="module-title">Módulo 1: Introducción</div>
+                        <div class="module-duration">15 min</div>
+                    </div>
+                </div>
+                <div class="module-item">
+                    <span class="module-icon">🔒</span>
+                    <div class="module-info">
+                        <div class="module-title">Módulo 2: Herramientas Básicas</div>
+                        <div class="module-duration">25 min</div>
+                    </div>
+                </div>
+                <div class="module-item">
+                    <span class="module-icon">🔒</span>
+                    <div class="module-info">
+                        <div class="module-title">Módulo 3: Modelado 3D</div>
+                        <div class="module-duration">30 min</div>
+                    </div>
+                </div>
+                <div class="module-item">
+                    <span class="module-icon">🔒</span>
+                    <div class="module-info">
+                        <div class="module-title">Módulo 4: Diseño de Muebles</div>
+                        <div class="module-duration">40 min</div>
+                    </div>
+                </div>
+                <div class="module-item">
+                    <span class="module-icon">🔒</span>
+                    <div class="module-info">
+                        <div class="module-title">Módulo 5: Proyecto Final</div>
+                        <div class="module-duration">60 min</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Resources -->
+            <div class="sidebar-section">
+                <h3>📂 Recursos Descargables</h3>
+                <div class="resource-item">
+                    <span class="resource-icon">📄</span>
+                    <div class="resource-info">
+                        <div class="resource-name">Manual SketchUp.pdf</div>
+                        <div class="resource-size">2.5 MB</div>
+                    </div>
+                    <button class="btn-download" onclick="downloadFromDrive('pdf')">
+                        ⬇ Descargar
+                    </button>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-icon">📊</span>
+                    <div class="resource-info">
+                        <div class="resource-name">Plantillas.skp</div>
+                        <div class="resource-size">1.2 MB</div>
+                    </div>
+                    <button class="btn-download" onclick="downloadFromDrive('skp')">
+                        ⬇ Descargar
+                    </button>
+                </div>
+                <div class="resource-item">
+                    <span class="resource-icon">🎨</span>
+                    <div class="resource-info">
+                        <div class="resource-name">Texturas.zip</div>
+                        <div class="resource-size">8.7 MB</div>
+                    </div>
+                    <button class="btn-download" onclick="downloadFromDrive('zip')">
+                        ⬇ Descargar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Evaluation -->
+            <div class="sidebar-section">
+                <h3>📝 Evaluación</h3>
+                <div class="evaluation-card">
+                    <h4>Tu Calificación</h4>
+                    <div class="evaluation-score">--</div>
+                    <p style="margin-bottom: 1rem;">Completa el curso para realizar la evaluación final</p>
+                    <button class="btn-evaluation" disabled>Tomar Evaluación</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Progreso del estudiante (simulado)
+        let progress = 0;
+        let completedModules = 0;
+        const totalModules = 5;
+
+        function updateProgress() {
+            progress = (completedModules / totalModules) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('progressPercentage').textContent = Math.round(progress) + '%';
+        }
+
+        function markAsCompleted() {
+            if (completedModules < totalModules) {
+                completedModules++;
+                updateProgress();
+                alert('¡Módulo completado! 🎉\n\nProgreso actualizado: ' + Math.round(progress) + '%');
+                
+                if (completedModules === totalModules) {
+                    document.querySelector('.btn-evaluation').disabled = false;
+                    alert('¡Felicidades! Has completado todos los módulos.\nYa puedes realizar la evaluación final.');
+                }
+            }
+        }
+
+        // Función de descarga desde Google Drive
+        function downloadFromDrive(fileType) {
+            // URLs DE GOOGLE DRIVE - REEMPLAZA CON TUS URLs REALES
+            const driveUrls = {
+                'pdf': 'https://drive.google.com/file/d/REEMPLAZA_CON_ID_PDF/view?usp=sharing',
+                'skp': 'https://drive.google.com/file/d/REEMPLAZA_CON_ID_SKP/view?usp=sharing',
+                'zip': 'https://drive.google.com/file/d/REEMPLAZA_CON_ID_ZIP/view?usp=sharing'
+            };
+
+            const url = driveUrls[fileType];
+            
+            // Abrir Google Drive en nueva pestaña
+            window.open(url, '_blank');
+            
+            alert('✅ Abriendo Google Drive\n\nHaz clic en el botón de descarga (⬇) en la página de Google Drive.');
+        }
+
+        // Inicializar progreso
+        updateProgress();
+    </script>
+</body>
+</html>
+```
+
+---
+
+## **✅ Cambios implementados:**
+
+- ✅ **Botones "⬇ Descargar"** agregados
+- ✅ **Función `downloadFromDrive()`** configurada
+- ✅ **URLs de ejemplo** listas para reemplazar
+- ✅ **Alerta informativa** al hacer clic
+
+---
+
+## **📌 SIGUIENTE PASO - Subir tus archivos:**
+
+1. **Sube los 3 archivos a Google Drive**
+2. **Hazlos públicos** (Compartir → Cualquier persona con el enlace)
+3. **Copia las URLs que se ven así:**
+```
+   https://drive.google.com/file/d/1AbCdEfGhIjKlMnOpQrStUvWxYz/view?usp=sharing

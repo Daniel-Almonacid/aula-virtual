@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula Virtual - Centro de Formación Cúbica</title>
+    <link rel="icon" type="image/png" href="assets/images/logo/favicon.png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        nav {
+            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+            padding: 0rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            height: 120px;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo {
+            height: 340px;
+            width: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 1rem;
+        }
+
+        .nav-links a:not(.btn-ingresar):hover {
+            color: #ecf0f1;
+        }
+
+        .btn-ingresar {
+            background: white !important;
+            color: #2c3e50 !important;
+            padding: 0.7rem 1.5rem !important;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600 !important;
+            transition: all 0.3s;
+            display: inline-block;
+        }
+
+        .btn-ingresar:hover {
+            background: #ecf0f1 !important;
+            color: #1a252f !important;
+            transform: scale(1.05);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: white;
+            padding: 0 2rem;
+        }
+
+        /* Courses Section */
+        .courses-section {
+            padding: 5rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 3rem;
+        }
+
+        /* Carousel Container - INFINITO PERFECTO */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            padding: 2rem 0;
+        }
+
+        .courses-slider {
+            display: flex;
+            gap: 2rem;
+            will-change: transform;
+        }
+
+        .course-card {
+            min-width: 350px;
+            max-width: 350px;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            flex-shrink: 0;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Carrusel de imágenes dentro de cada tarjeta */
+        .course-image-container {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .course-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .course-image.active {
+            opacity: 1;
+        }
+
+        .course-content {
+            padding: 1.5rem;
+        }
+
+        .course-title {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .course-description {
+            color: #666;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .btn-course {
+            background: #3498db;
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+
+        .btn-course:hover {
+            background: #2980b9;
+        }
+
+        /* About Section */
+        .about-section {
+            padding: 8rem 2rem;
+            background: white;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 3rem 2rem;
+            background: #f8f9fa;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .btn-submit {
+            background: #3498db;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover {
+            background: #2980b9;
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .btn-ingresar {
+                width: 100%;
+                text-align: center;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .course-card {
+                min-width: 280px;
+                max-width: 280px;
+            }
+
+            .logo {
+                height: 120px;
+            }
+
+            nav {
+                padding: 0rem 1rem;
+                height: 140px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content {
+            animation: fadeIn 1s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo-container">
+            <img src="assets/images/logo/logo-cfc-transparente.png" alt="Centro de Formación Cúbica" class="logo">
+        </div>
+        
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#cursos">Cursos</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+            <li><a href="public/seleccionar-usuario.html" class="btn-ingresar">Ingresar</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="inicio">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="assets/videos/fondos/Bienvenida.mp4" type="video/mp4">
+            Tu navegador no soporta videos HTML5.
+        </video>
+        
+        <div class="hero-content">
+        </div>
+    </section>
+
+    <section class="courses-section" id="cursos">
+        <h2 class="section-title">Cursos Disponibles</h2>
+        
+        <div class="carousel-container">
+            <div class="courses-slider" id="coursesSlider">
+                <!-- Tarjetas generadas por JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section" id="nosotros">
+        <h2 class="section-title">Sobre Nosotros</h2>
+        <div class="about-content">
+            <p>Somos una plataforma dedicada a democratizar la educación, ofreciendo cursos de calidad accesibles para todos.</p>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contacto">
+        <h2 class="section-title">Contacto</h2>
+        <form class="contact-form">
+            <div class="form-group">
+                <input type="text" placeholder="Nombre" required>
+            </div>
+            <div class="form-group">
+                <input type="email" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+                <textarea placeholder="Mensaje" required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Enviar</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Aula Virtual. Todos los derechos reservados.</p>
+        <p>Contacto: <a href="mailto:contacto@centroformacioncubica.com">contacto@centroformacioncubica.com</a></p>
+    </footer>
+
+    <script>
+        // Datos de los cursos
+        const coursesData = [
+            {
+                title: 'SketchUp para principiantes PRO',
+                description: 'Domina el diseño 3D desde cero con SketchUp.',
+                images: ['assets/images/courses/sketchup-1.jpeg', 'assets/images/courses/sketchup-2.jpeg']
+            },
+            {
+                title: 'OpenCutiList',
+                description: 'Optimiza el corte de materiales para carpintería.',
+                images: ['assets/images/courses/opencutlist-1.jpeg', 'assets/images/courses/opencutlist-2.jpeg']
+            },
+            {
+                title: 'MS-Project',
+                description: 'Gestiona proyectos profesionales con Microsoft Project.',
+                images: ['assets/images/courses/msproject-1.jpeg', 'assets/images/courses/msproject-2.jpeg']
+            },
+            {
+                title: 'Canva',
+                description: 'Crea diseños gráficos profesionales sin experiencia previa.',
+                images: ['assets/images/courses/canva-1.jpeg', 'assets/images/courses/canva-2.jpeg']
+            },
+            {
+                title: 'Instalaciones Eléctricas Domiciliarias',
+                description: 'Aprende a diseñar e instalar sistemas eléctricos residenciales.',
+                images: ['assets/images/courses/electricas-1.jpeg', 'assets/images/courses/electricas-2.jpeg']
+            },
+            {
+                title: 'Sistemas de Puesta a Tierra',
+                description: 'Instalación, medición y certificación según normativa vigente.',
+                images: ['assets/images/courses/tierra-1.jpeg', 'assets/images/courses/tierra-2.jpeg']
+            }
+        ];
+
+        // Crear tarjeta de curso
+        function createCourseCard(course) {
+            return `
+                <div class="course-card">
+                    <div class="course-image-container">
+                        <img src="${course.images[0]}" alt="${course.title}" class="course-image active">
+                        <img src="${course.images[1]}" alt="${course.title}" class="course-image">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">${course.title}</h3>
+                        <p class="course-description">${course.description}</p>
+                        <a href="public/seleccionar-usuario.html" class="btn-course">Ver Curso</a>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Variables globales para el carrusel
+        let scrollPosition = 0;
+        let isPaused = false;
+        let animationId = null;
+
+        // Inicializar carrusel infinito
+        function initInfiniteCarousel() {
+            const slider = document.getElementById('coursesSlider');
+            
+            // Crear 4 copias de los cursos para loop perfecto
+            let html = '';
+            for (let i = 0; i < 4; i++) {
+                coursesData.forEach(course => {
+                    html += createCourseCard(course);
+                });
+            }
+            slider.innerHTML = html;
+
+            // Constantes
+            const cardWidth = 350;
+            const gap = 32;
+            const itemWidth = cardWidth + gap;
+            const totalItems = 6;
+            const resetPoint = itemWidth * totalItems;
+            const speed = 0.5; // píxeles por frame (ajusta la velocidad aquí)
+
+            // Función de animación continua
+            function animate() {
+                if (!isPaused) {
+                    scrollPosition += speed;
+                    
+                    // Reinicio invisible cuando completa un set
+                    if (scrollPosition >= resetPoint) {
+                        scrollPosition = scrollPosition - resetPoint;
+                    }
+                    
+                    slider.style.transform = `translateX(-${scrollPosition}px)`;
+                }
+                
+                animationId = requestAnimationFrame(animate);
+            }
+
+            // Pausar/reanudar con hover
+            const container = document.querySelector('.carousel-container');
+            container.addEventListener('mouseenter', () => {
+                isPaused = true;
+            });
+
+            container.addEventListener('mouseleave', () => {
+                isPaused = false;
+            });
+
+            // Iniciar animación
+            animate();
+        }
+
+        // Carrusel automático de imágenes dentro de cada tarjeta (3 segundos)
+        function initImageCarousels() {
+            const cards = document.querySelectorAll('.course-card');
+            
+            cards.forEach(card => {
+                const images = card.querySelectorAll('.course-image');
+                let currentIndex = 0;
+                
+                setInterval(() => {
+                    images[currentIndex].classList.remove('active');
+                    currentIndex = (currentIndex + 1) % images.length;
+                    images[currentIndex].classList.add('active');
+                }, 3000);
+            });
+        }
+
+        // Iniciar todo cuando cargue la página
+        window.addEventListener('load', () => {
+            initInfiniteCarousel();
+            setTimeout(initImageCarousels, 100);
+        });
+
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Cerrar menú al hacer clic en un enlace (móvil)
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                const navLinks = document.getElementById('navLinks');
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Cerrar menú al hacer scroll (móvil)
+        window.addEventListener('scroll', () => {
+            const navLinks = document.getElementById('navLinks');
+            if (navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
