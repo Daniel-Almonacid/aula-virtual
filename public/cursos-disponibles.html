@@ -249,89 +249,7 @@
             <button class="carousel-btn prev" onclick="slideCarousel(-1)">◀</button>
             
             <div class="courses-slider" id="coursesSlider">
-                <!-- SketchUp -->
-                <div class="course-card">
-                    <div class="course-image-container">
-                        <img src="../assets/images/courses/sketchup-1.jpeg" alt="SketchUp" class="course-image active">
-                        <img src="../assets/images/courses/sketchup-2.jpeg" alt="SketchUp" class="course-image">
-                    </div>
-                    <div class="course-content">
-                        <h3 class="course-title">SketchUp para principiantes PRO</h3>
-                        <a href="cursos/sketchup.html" class="btn-access">
-                            Acceder al Curso 🔒
-                        </a>
-                    </div>
-                </div>
-
-                <!-- OpenCutList -->
-                <div class="course-card">
-                    <div class="course-image-container">
-                        <img src="../assets/images/courses/opencutlist-1.jpeg" alt="OpenCutList" class="course-image active">
-                        <img src="../assets/images/courses/opencutlist-2.jpeg" alt="OpenCutList" class="course-image">
-                    </div>
-                    <div class="course-content">
-                        <h3 class="course-title">OpenCutiList</h3>
-                        <a href="cursos/opencutilist.html" class="btn-access">
-                            Acceder al Curso 🔒
-                        </a>
-                    </div>
-                </div>
-
-                <!-- MS-Project -->
-                <div class="course-card">
-                    <div class="course-image-container">
-                        <img src="../assets/images/courses/msproject-1.jpeg" alt="MS-Project" class="course-image active">
-                        <img src="../assets/images/courses/msproject-2.jpeg" alt="MS-Project" class="course-image">
-                    </div>
-                    <div class="course-content">
-                        <h3 class="course-title">MS-Project</h3>
-                        <a href="cursos/msproject.html" class="btn-access">
-                            Acceder al Curso 🔒
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Canva -->
-                <div class="course-card">
-                    <div class="course-image-container">
-                        <img src="../assets/images/courses/canva-1.jpeg" alt="Canva" class="course-image active">
-                        <img src="../assets/images/courses/canva-2.jpeg" alt="Canva" class="course-image">
-                    </div>
-                    <div class="course-content">
-                        <h3 class="course-title">Canva</h3>
-                        <a href="cursos/canva.html" class="btn-access">
-                            Acceder al Curso 🔒
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Instalaciones Eléctricas -->
-                <div class="course-card">
-                    <div class="course-image-container">
-                        <img src="../assets/images/courses/electricas-1.jpeg" alt="Instalaciones Eléctricas" class="course-image active">
-                        <img src="../assets/images/courses/electricas-2.jpeg" alt="Instalaciones Eléctricas" class="course-image">
-                    </div>
-                    <div class="course-content">
-                        <h3 class="course-title">Instalaciones Eléctricas Domiciliarias</h3>
-                        <a href="cursos/electricas.html" class="btn-access">
-                            Acceder al Curso 🔒
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Puesta a Tierra -->
-                <div class="course-card">
-                    <div class="course-image-container">
-                        <img src="../assets/images/courses/tierra-1.jpeg" alt="Puesta a Tierra" class="course-image active">
-                        <img src="../assets/images/courses/tierra-2.jpeg" alt="Puesta a Tierra" class="course-image">
-                    </div>
-                    <div class="course-content">
-                        <h3 class="course-title">Instalación, Medición y Certificación de Sistemas de Puesta a Tierra</h3>
-                        <a href="cursos/tierra.html" class="btn-access">
-                            Acceder al Curso 🔒
-                        </a>
-                    </div>
-                </div>
+                <!-- Los cursos se clonarán aquí dinámicamente para hacer el carrusel infinito -->
             </div>
 
             <button class="carousel-btn next" onclick="slideCarousel(1)">▶</button>
@@ -339,28 +257,134 @@
     </div>
 
     <script>
-        let currentSlide = 0;
-        const totalCourses = 6;
+        // Definir los cursos
+        const courses = [
+            {
+                title: 'SketchUp para principiantes PRO',
+                images: ['../assets/images/courses/sketchup-1.jpeg', '../assets/images/courses/sketchup-2.jpeg'],
+                link: 'cursos/sketchup.html'
+            },
+            {
+                title: 'OpenCutiList',
+                images: ['../assets/images/courses/opencutlist-1.jpeg', '../assets/images/courses/opencutlist-2.jpeg'],
+                link: 'cursos/opencutilist.html'
+            },
+            {
+                title: 'MS-Project',
+                images: ['../assets/images/courses/msproject-1.jpeg', '../assets/images/courses/msproject-2.jpeg'],
+                link: 'cursos/msproject.html'
+            },
+            {
+                title: 'Canva',
+                images: ['../assets/images/courses/canva-1.jpeg', '../assets/images/courses/canva-2.jpeg'],
+                link: 'cursos/canva.html'
+            },
+            {
+                title: 'Instalaciones Eléctricas Domiciliarias',
+                images: ['../assets/images/courses/electricas-1.jpeg', '../assets/images/courses/electricas-2.jpeg'],
+                link: 'cursos/electricas.html'
+            },
+            {
+                title: 'Instalación, Medición y Certificación de Sistemas de Puesta a Tierra',
+                images: ['../assets/images/courses/tierra-1.jpeg', '../assets/images/courses/tierra-2.jpeg'],
+                link: 'cursos/tierra.html'
+            }
+        ];
 
-        // Carrusel horizontal infinito
-        function slideCarousel(direction) {
-            const slider = document.getElementById('coursesSlider');
+        let currentSlide = 0;
+        let isTransitioning = false;
+        const slider = document.getElementById('coursesSlider');
+
+        // Crear tarjetas de curso
+        function createCourseCard(course) {
+            return `
+                <div class="course-card">
+                    <div class="course-image-container">
+                        <img src="${course.images[0]}" alt="${course.title}" class="course-image active">
+                        <img src="${course.images[1]}" alt="${course.title}" class="course-image">
+                    </div>
+                    <div class="course-content">
+                        <h3 class="course-title">${course.title}</h3>
+                        <a href="${course.link}" class="btn-access">
+                            Acceder al Curso 🔒
+                        </a>
+                    </div>
+                </div>
+            `;
+        }
+
+        // Inicializar el carrusel infinito
+        function initCarousel() {
+            // Crear las tarjetas: duplicados al inicio + originales + duplicados al final
+            let html = '';
+            
+            // Clonar últimos 2 cursos al inicio (para transición hacia atrás)
+            html += createCourseCard(courses[courses.length - 2]);
+            html += createCourseCard(courses[courses.length - 1]);
+            
+            // Cursos originales
+            courses.forEach(course => {
+                html += createCourseCard(course);
+            });
+            
+            // Clonar primeros 2 cursos al final (para transición hacia adelante)
+            html += createCourseCard(courses[0]);
+            html += createCourseCard(courses[1]);
+            
+            slider.innerHTML = html;
+            
+            // Posicionar al inicio real (después de los clones iniciales)
+            currentSlide = 2;
+            updateSliderPosition(false);
+        }
+
+        // Actualizar posición del slider
+        function updateSliderPosition(animate = true) {
             const cards = document.querySelectorAll('.course-card');
-            const cardWidth = cards[0].offsetWidth + 40; // 40px = gap de 2.5rem
+            if (cards.length === 0) return;
             
-            currentSlide += direction;
+            const cardWidth = cards[0].offsetWidth + 40; // 40px = gap
             
-            // Hacer infinito el carrusel
-            if (currentSlide < 0) {
-                currentSlide = totalCourses - 1;
-            } else if (currentSlide >= totalCourses) {
-                currentSlide = 0;
+            if (animate) {
+                slider.style.transition = 'transform 0.5s ease-in-out';
+            } else {
+                slider.style.transition = 'none';
             }
             
             slider.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
         }
 
-        // Carrusel automático de imágenes dentro de cada tarjeta (3 segundos)
+        // Navegar en el carrusel
+        function slideCarousel(direction) {
+            if (isTransitioning) return;
+            
+            isTransitioning = true;
+            const totalCards = courses.length + 4; // Originales + 4 clones
+            
+            currentSlide += direction;
+            updateSliderPosition(true);
+            
+            // Después de la transición, verificar si necesitamos "resetear" la posición
+            setTimeout(() => {
+                const cards = document.querySelectorAll('.course-card');
+                const cardWidth = cards[0].offsetWidth + 40;
+                
+                // Si llegamos al final (clones al final)
+                if (currentSlide >= courses.length + 2) {
+                    currentSlide = 2; // Volver al inicio real
+                    updateSliderPosition(false);
+                }
+                // Si llegamos al inicio (clones al inicio)
+                else if (currentSlide < 2) {
+                    currentSlide = courses.length + 1; // Ir al final real
+                    updateSliderPosition(false);
+                }
+                
+                isTransitioning = false;
+            }, 500);
+        }
+
+        // Carrusel automático de imágenes dentro de cada tarjeta
         function initImageCarousels() {
             const cards = document.querySelectorAll('.course-card');
             
@@ -372,12 +396,20 @@
                     images[currentIndex].classList.remove('active');
                     currentIndex = (currentIndex + 1) % images.length;
                     images[currentIndex].classList.add('active');
-                }, 3000); // Cambiar cada 3 segundos
+                }, 3000);
             });
         }
 
-        // Iniciar carruseles cuando cargue la página
-        window.addEventListener('load', initImageCarousels);
+        // Ajustar posición al cambiar tamaño de ventana
+        window.addEventListener('resize', () => {
+            updateSliderPosition(false);
+        });
+
+        // Inicializar todo al cargar
+        window.addEventListener('load', () => {
+            initCarousel();
+            initImageCarousels();
+        });
     </script>
 </body>
 </html>
