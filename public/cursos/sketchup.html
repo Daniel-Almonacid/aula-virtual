@@ -99,22 +99,18 @@
             border-radius: 10px;
         }
 
-        /* Main Content */
-        .container {
-            max-width: 1400px;
-            margin: 2rem auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 2rem;
+        /* Main Layout */
+        .course-layout {
+            display: flex;
+            min-height: calc(100vh - 200px);
         }
 
-        /* Video Section */
-        .video-section {
-            background: white;
-            border-radius: 15px;
+        /* Content Area */
+        .content-area {
+            flex: 1;
             padding: 2rem;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            background: white;
+            overflow-y: auto;
         }
 
         .video-container {
@@ -125,15 +121,19 @@
             border-radius: 10px;
             overflow: hidden;
             margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
-        .video-container iframe,
-        .video-container video {
+        .video-container iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+        }
+
+        .video-info {
+            margin-bottom: 2rem;
         }
 
         .video-info h2 {
@@ -142,9 +142,9 @@
         }
 
         .video-info p {
-            color: #666;
+            color: #555;
+            margin-bottom: 0.5rem;
             line-height: 1.6;
-            margin-bottom: 1rem;
         }
 
         .video-controls {
@@ -153,10 +153,8 @@
             margin-top: 2rem;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 0.8rem 1.5rem;
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2rem;
             border: none;
             border-radius: 8px;
             font-weight: 600;
@@ -164,39 +162,36 @@
             transition: all 0.3s;
         }
 
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
         .btn-primary:hover {
-            transform: scale(1.05);
+            transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
         }
 
         .btn-secondary {
-            background: white;
-            color: #667eea;
-            padding: 0.8rem 1.5rem;
-            border: 2px solid #667eea;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
+            background: #f8f9fa;
+            color: #2c3e50;
         }
 
         .btn-secondary:hover {
-            background: #667eea;
-            color: white;
+            background: #e9ecef;
         }
 
         /* Sidebar */
         .sidebar {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
+            width: 400px;
+            background: #f8f9fa;
+            padding: 2rem;
+            overflow-y: auto;
+            box-shadow: -2px 0 10px rgba(0,0,0,0.1);
         }
 
         .sidebar-section {
-            background: white;
-            border-radius: 15px;
-            padding: 1.5rem;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
         }
 
         .sidebar-section h3 {
@@ -206,27 +201,41 @@
             border-bottom: 2px solid #667eea;
         }
 
-        /* Modules List */
+        /* Modules with expandable themes */
         .module-item {
-            padding: 1rem;
             margin-bottom: 0.5rem;
-            background: #f8f9fa;
+            background: white;
             border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .module-header {
+            padding: 1rem;
             cursor: pointer;
             transition: all 0.3s;
             display: flex;
             align-items: center;
             gap: 1rem;
+            background: #fff;
         }
 
-        .module-item:hover {
-            background: #e9ecef;
-            transform: translateX(5px);
+        .module-header:hover {
+            background: #f8f9fa;
         }
 
-        .module-item.active {
+        .module-header.active {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
+        }
+
+        .module-expand-icon {
+            font-size: 1rem;
+            transition: transform 0.3s;
+        }
+
+        .module-expand-icon.expanded {
+            transform: rotate(90deg);
         }
 
         .module-icon {
@@ -247,24 +256,74 @@
             opacity: 0.8;
         }
 
+        /* Themes List (collapsed by default) */
+        .themes-list {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: #f8f9fa;
+        }
+
+        .themes-list.expanded {
+            max-height: 500px;
+        }
+
+        .theme-item {
+            padding: 0.75rem 1rem 0.75rem 3rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            border-left: 3px solid transparent;
+        }
+
+        .theme-item:hover {
+            background: #e9ecef;
+            border-left-color: #667eea;
+        }
+
+        .theme-item.active {
+            background: #e3f2fd;
+            border-left-color: #667eea;
+            font-weight: 600;
+        }
+
+        .theme-item.completed {
+            color: #28a745;
+        }
+
+        .theme-icon {
+            font-size: 1rem;
+        }
+
+        .theme-info {
+            flex: 1;
+        }
+
+        .theme-title {
+            font-size: 0.95rem;
+        }
+
+        .theme-duration {
+            font-size: 0.85rem;
+            opacity: 0.7;
+        }
+
         /* Resources */
         .resource-item {
             display: flex;
             align-items: center;
             gap: 1rem;
             padding: 1rem;
-            background: #f8f9fa;
+            background: white;
             border-radius: 8px;
             margin-bottom: 0.5rem;
-            transition: all 0.3s;
-        }
-
-        .resource-item:hover {
-            background: #e9ecef;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
 
         .resource-icon {
-            font-size: 2rem;
+            font-size: 1.5rem;
         }
 
         .resource-info {
@@ -274,93 +333,57 @@
         .resource-name {
             font-weight: 600;
             color: #2c3e50;
-            margin-bottom: 0.3rem;
         }
 
         .resource-size {
-            font-size: 0.9rem;
-            color: #666;
+            font-size: 0.85rem;
+            color: #6c757d;
         }
 
         .btn-download {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #667eea;
             color: white;
-            padding: 0.6rem 1.2rem;
             border: none;
+            padding: 0.5rem 1rem;
             border-radius: 5px;
-            font-weight: 600;
             cursor: pointer;
+            font-size: 0.9rem;
             transition: all 0.3s;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            white-space: nowrap;
         }
 
         .btn-download:hover {
-            transform: scale(1.05);
-            box-shadow: 0 3px 10px rgba(102, 126, 234, 0.4);
-        }
-
-        /* Evaluation */
-        .evaluation-card {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 1.5rem;
-            border-radius: 10px;
-            text-align: center;
-        }
-
-        .evaluation-card h4 {
-            margin-bottom: 1rem;
-        }
-
-        .evaluation-score {
-            font-size: 3rem;
-            font-weight: bold;
-            margin: 1rem 0;
-        }
-
-        .btn-evaluation {
-            background: white;
-            color: #667eea;
-            padding: 0.8rem 1.5rem;
-            border: none;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            width: 100%;
-            transition: all 0.3s;
-        }
-
-        .btn-evaluation:hover {
+            background: #5568d3;
             transform: scale(1.05);
         }
 
-        .btn-evaluation:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-        }
+        @media (max-width: 968px) {
+            .course-layout {
+                flex-direction: column;
+            }
 
-        @media (max-width: 1024px) {
-            .container {
-                grid-template-columns: 1fr;
+            .sidebar {
+                width: 100%;
+            }
+
+            .video-controls {
+                flex-direction: column;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Navigation -->
     <nav>
         <div class="nav-left">
             <a href="../cursos-disponibles.html" class="btn-back">← Volver a Mis Cursos</a>
-            <div class="course-title-nav">SketchUp para principiantes PRO</div>
+            <span class="course-title-nav">🎨 SketchUp para principiantes PRO</span>
         </div>
     </nav>
 
+    <!-- Progress Bar -->
     <div class="progress-container">
         <div class="progress-header">
-            <span class="progress-text">Tu Progreso en el Curso</span>
+            <span class="progress-text">Progreso del Curso</span>
             <span class="progress-percentage" id="progressPercentage">0%</span>
         </div>
         <div class="progress-bar">
@@ -368,11 +391,13 @@
         </div>
     </div>
 
-    <div class="container">
-        <!-- Main Video Section -->
-        <div class="video-section">
+    <!-- Course Layout -->
+    <div class="course-layout">
+        <!-- Content Area -->
+        <div class="content-area">
             <div class="video-container">
                 <iframe 
+                    id="videoPlayer"
                     src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -381,56 +406,266 @@
             </div>
 
             <div class="video-info">
-                <h2>Módulo 1: Introducción a SketchUp</h2>
-                <p>En este módulo aprenderás los conceptos básicos de SketchUp, la interfaz del programa y las herramientas fundamentales para comenzar a diseñar en 3D.</p>
-                <p><strong>Duración:</strong> 15 minutos</p>
+                <h2 id="currentTopicTitle">Módulo 1 - Tema 1: Qué es SketchUp</h2>
+                <p id="currentTopicDescription">Introducción al software SketchUp, sus características principales y aplicaciones en diseño 3D.</p>
+                <p><strong>Duración:</strong> <span id="currentTopicDuration">5 minutos</span></p>
                 <p><strong>Nivel:</strong> Principiante</p>
             </div>
 
             <div class="video-controls">
                 <button class="btn-primary" onclick="markAsCompleted()">✓ Marcar como Completado</button>
-                <button class="btn-secondary">📝 Hacer una Pregunta</button>
+                <button class="btn-secondary" onclick="askQuestion()">📝 Hacer una Pregunta</button>
             </div>
         </div>
 
         <!-- Sidebar -->
         <div class="sidebar">
-            <!-- Modules -->
+            <!-- Modules and Themes -->
             <div class="sidebar-section">
                 <h3>📚 Contenido del Curso</h3>
-                <div class="module-item active">
-                    <span class="module-icon">▶</span>
-                    <div class="module-info">
-                        <div class="module-title">Módulo 1: Introducción</div>
-                        <div class="module-duration">15 min</div>
+                
+                <!-- Módulo 1 -->
+                <div class="module-item">
+                    <div class="module-header active" onclick="toggleModule(1)">
+                        <span class="module-expand-icon expanded" id="expand-icon-1">▶</span>
+                        <span class="module-icon">📖</span>
+                        <div class="module-info">
+                            <div class="module-title">Módulo 1: Introducción a SketchUp</div>
+                            <div class="module-duration">25 min • 5 temas</div>
+                        </div>
+                    </div>
+                    <div class="themes-list expanded" id="themes-1">
+                        <div class="theme-item active" onclick="loadTheme(1, 1)">
+                            <span class="theme-icon">▶</span>
+                            <div class="theme-info">
+                                <div class="theme-title">1.1 Qué es SketchUp</div>
+                                <div class="theme-duration">5 min</div>
+                            </div>
+                        </div>
+                        <div class="theme-item" onclick="loadTheme(1, 2)">
+                            <span class="theme-icon">🔒</span>
+                            <div class="theme-info">
+                                <div class="theme-title">1.2 Interfaz del programa</div>
+                                <div class="theme-duration">5 min</div>
+                            </div>
+                        </div>
+                        <div class="theme-item" onclick="loadTheme(1, 3)">
+                            <span class="theme-icon">🔒</span>
+                            <div class="theme-info">
+                                <div class="theme-title">1.3 Herramientas básicas</div>
+                                <div class="theme-duration">5 min</div>
+                            </div>
+                        </div>
+                        <div class="theme-item" onclick="loadTheme(1, 4)">
+                            <span class="theme-icon">🔒</span>
+                            <div class="theme-info">
+                                <div class="theme-title">1.4 Navegación en 3D</div>
+                                <div class="theme-duration">5 min</div>
+                            </div>
+                        </div>
+                        <div class="theme-item" onclick="loadTheme(1, 5)">
+                            <span class="theme-icon">🔒</span>
+                            <div class="theme-info">
+                                <div class="theme-title">1.5 Primer proyecto simple</div>
+                                <div class="theme-duration">5 min</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Módulo 2 -->
                 <div class="module-item">
-                    <span class="module-icon">🔒</span>
-                    <div class="module-info">
-                        <div class="module-title">Módulo 2: Herramientas Básicas</div>
-                        <div class="module-duration">25 min</div>
+                    <div class="module-header" onclick="toggleModule(2)">
+                        <span class="module-expand-icon" id="expand-icon-2">▶</span>
+                        <span class="module-icon">🔧</span>
+                        <div class="module-info">
+                            <div class="module-title">Módulo 2: Herramientas Básicas</div>
+                            <div class="module-duration">30 min • 5 temas</div>
+                        </div>
+                    </div>
+                    <div class="themes-list" id="themes-2">
+                        <div class="theme-item" onclick="loadTheme(2, 1)">
+                            <span class="theme-icon">🔒</span>
+                            <div class="theme-info">
+                                <div class="theme-title">2.1 Línea y Lápiz</div>
+                                <div class="theme-duration">6 min</div>
+                            </div>
+                        </div>
+                        <div class="theme-item" onclick="loadTheme(2, 2)">
+                            <span class="theme-icon">🔒</span>
+                            <div class="theme-info">
+                                <div class="theme-title">2.2 Rectángulo y Círculo</div>
+                                <div class="theme-duration">6 min</div>
+                            </div>
+                        </div>
+                        <div class="theme-item" onclick="loadTheme(2, 3)">
+                            <span class="theme-icon">🔒</span>
+                            <div class="theme-info">
+                                <div class="theme-title">2.3 Empujar/Tirar</div>
+                                <div class="theme-duration">6 min</div>
+                            </div>
+                        </div>
+                        <div class="theme-item" onclick="loadTheme(2, 4)">
+                            <span class="theme-icon">🔒</span>
+                            <div class="theme-info">
+                                <div class="theme-title">2.4 Mover y Copiar</div>
+                                <div class="theme-duration">6 min</div>
+                            </div>
+                        </div>
+                        <div class="theme-item" onclick="loadTheme(2, 5)">
+                            <span class="theme-icon">🔒</span>
+                            <div class="theme-info">
+                                <div class="theme-title">2.5 Rotar y Escalar</div>
+                                <div class="theme-duration">6 min</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Módulo 3 -->
                 <div class="module-item">
-                    <span class="module-icon">🔒</span>
-                    <div class="module-info">
-                        <div class="module-title">Módulo 3: Modelado 3D</div>
-                        <div class="module-duration">30 min</div>
+                    <div class="module-header" onclick="toggleModule(3)">
+                        <span class="module-expand-icon" id="expand-icon-3">▶</span>
+                        <span class="module-icon">🏗️</span>
+                        <div class="module-info">
+                            <div class="module-title">Módulo 3: Modelado 3D Avanzado</div>
+                            <div class="module-duration">35 min • 5 temas</div>
+                        </div>
+                    </div>
+                    <div class="themes-list" id="themes-3">
+                        <div class="theme-item" onclick="loadTheme(3, 1)">
+                            <span class="theme-icon">🔒</span>
+                            <div class="theme-info">
+                                <div class="theme-title">3.1 Grupos y Componentes</div>
+                                <div class="theme-duration">7 min</div>
+                            </div>
+                        </div>
+                        <div class="theme-item" onclick="loadTheme(3, 2)">
+                            <span class="theme-icon">🔒</span>
+                            <div class="theme-info">
+                                <div class="theme-title">3.2 Capas y organización</div>
+                                <div class="theme-duration">7 min</div>
+                            </div>
+                        </div>
+                        <div class="theme-item" onclick="loadTheme(3, 3)">
+                            <span class="theme-icon">🔒</span>
+                            <div class="theme-info">
+                                <div class="theme-title">3.3 Sígueme (Follow Me)</div>
+                                <div class="theme-duration">7 min</div>
+                            </div>
+                        </div>
+                        <div class="theme-item" onclick="loadTheme(3, 4)">
+                            <span class="theme-icon">🔒</span>
+                            <div class="theme-info">
+                                <div class="theme-title">3.4 Intersectar y Dividir</div>
+                                <div class="theme-duration">7 min</div>
+                            </div>
+                        </div>
+                        <div class="theme-item" onclick="loadTheme(3, 5)">
+                            <span class="theme-icon">🔒</span>
+                            <div class="theme-info">
+                                <div class="theme-title">3.5 Técnicas de modelado</div>
+                                <div class="theme-duration">7 min</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Módulo 4 -->
                 <div class="module-item">
-                    <span class="module-icon">🔒</span>
-                    <div class="module-info">
-                        <div class="module-title">Módulo 4: Diseño de Muebles</div>
-                        <div class="module-duration">40 min</div>
+                    <div class="module-header" onclick="toggleModule(4)">
+                        <span class="module-expand-icon" id="expand-icon-4">▶</span>
+                        <span class="module-icon">🪑</span>
+                        <div class="module-info">
+                            <div class="module-title">Módulo 4: Diseño de Muebles</div>
+                            <div class="module-duration">40 min • 5 temas</div>
+                        </div>
+                    </div>
+                    <div class="themes-list" id="themes-4">
+                        <div class="theme-item" onclick="loadTheme(4, 1)">
+                            <span class="theme-icon">🔒</span>
+                            <div class="theme-info">
+                                <div class="theme-title">4.1 Diseño de una mesa</div>
+                                <div class="theme-duration">8 min</div>
+                            </div>
+                        </div>
+                        <div class="theme-item" onclick="loadTheme(4, 2)">
+                            <span class="theme-icon">🔒</span>
+                            <div class="theme-info">
+                                <div class="theme-title">4.2 Diseño de una silla</div>
+                                <div class="theme-duration">8 min</div>
+                            </div>
+                        </div>
+                        <div class="theme-item" onclick="loadTheme(4, 3)">
+                            <span class="theme-icon">🔒</span>
+                            <div class="theme-info">
+                                <div class="theme-title">4.3 Diseño de un armario</div>
+                                <div class="theme-duration">8 min</div>
+                            </div>
+                        </div>
+                        <div class="theme-item" onclick="loadTheme(4, 4)">
+                            <span class="theme-icon">🔒</span>
+                            <div class="theme-info">
+                                <div class="theme-title">4.4 Materiales y texturas</div>
+                                <div class="theme-duration">8 min</div>
+                            </div>
+                        </div>
+                        <div class="theme-item" onclick="loadTheme(4, 5)">
+                            <span class="theme-icon">🔒</span>
+                            <div class="theme-info">
+                                <div class="theme-title">4.5 Renderizado básico</div>
+                                <div class="theme-duration">8 min</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Módulo 5 -->
                 <div class="module-item">
-                    <span class="module-icon">🔒</span>
-                    <div class="module-info">
-                        <div class="module-title">Módulo 5: Proyecto Final</div>
-                        <div class="module-duration">60 min</div>
+                    <div class="module-header" onclick="toggleModule(5)">
+                        <span class="module-expand-icon" id="expand-icon-5">▶</span>
+                        <span class="module-icon">🎯</span>
+                        <div class="module-info">
+                            <div class="module-title">Módulo 5: Proyecto Final</div>
+                            <div class="module-duration">60 min • 5 temas</div>
+                        </div>
+                    </div>
+                    <div class="themes-list" id="themes-5">
+                        <div class="theme-item" onclick="loadTheme(5, 1)">
+                            <span class="theme-icon">🔒</span>
+                            <div class="theme-info">
+                                <div class="theme-title">5.1 Planificación del proyecto</div>
+                                <div class="theme-duration">12 min</div>
+                            </div>
+                        </div>
+                        <div class="theme-item" onclick="loadTheme(5, 2)">
+                            <span class="theme-icon">🔒</span>
+                            <div class="theme-info">
+                                <div class="theme-title">5.2 Modelado completo</div>
+                                <div class="theme-duration">12 min</div>
+                            </div>
+                        </div>
+                        <div class="theme-item" onclick="loadTheme(5, 3)">
+                            <span class="theme-icon">🔒</span>
+                            <div class="theme-info">
+                                <div class="theme-title">5.3 Aplicación de materiales</div>
+                                <div class="theme-duration">12 min</div>
+                            </div>
+                        </div>
+                        <div class="theme-item" onclick="loadTheme(5, 4)">
+                            <span class="theme-icon">🔒</span>
+                            <div class="theme-info">
+                                <div class="theme-title">5.4 Presentación del proyecto</div>
+                                <div class="theme-duration">12 min</div>
+                            </div>
+                        </div>
+                        <div class="theme-item" onclick="loadTheme(5, 5)">
+                            <span class="theme-icon">🔒</span>
+                            <div class="theme-info">
+                                <div class="theme-title">5.5 Exportación y entrega</div>
+                                <div class="theme-duration">12 min</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -444,109 +679,109 @@
                         <div class="resource-name">Manual SketchUp.pdf</div>
                         <div class="resource-size">2.5 MB</div>
                     </div>
-                    <button class="btn-download" onclick="downloadFromDrive('pdf')">
-                        ⬇ Descargar
+                    <button class="btn-download" onclick="downloadResource('manual')">
+                        ⬇
                     </button>
                 </div>
                 <div class="resource-item">
-                    <span class="resource-icon">📊</span>
+                    <span class="resource-icon">📦</span>
                     <div class="resource-info">
-                        <div class="resource-name">Plantillas.skp</div>
-                        <div class="resource-size">1.2 MB</div>
+                        <div class="resource-name">Archivos de práctica.zip</div>
+                        <div class="resource-size">15.3 MB</div>
                     </div>
-                    <button class="btn-download" onclick="downloadFromDrive('skp')">
-                        ⬇ Descargar
+                    <button class="btn-download" onclick="downloadResource('practice')">
+                        ⬇
                     </button>
-                </div>
-                <div class="resource-item">
-                    <span class="resource-icon">🎨</span>
-                    <div class="resource-info">
-                        <div class="resource-name">Texturas.zip</div>
-                        <div class="resource-size">8.7 MB</div>
-                    </div>
-                    <button class="btn-download" onclick="downloadFromDrive('zip')">
-                        ⬇ Descargar
-                    </button>
-                </div>
-            </div>
-
-            <!-- Evaluation -->
-            <div class="sidebar-section">
-                <h3>📝 Evaluación</h3>
-                <div class="evaluation-card">
-                    <h4>Tu Calificación</h4>
-                    <div class="evaluation-score">--</div>
-                    <p style="margin-bottom: 1rem;">Completa el curso para realizar la evaluación final</p>
-                    <button class="btn-evaluation" disabled>Tomar Evaluación</button>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Progreso del estudiante (simulado)
-        let progress = 0;
-        let completedModules = 0;
-        const totalModules = 5;
+        // Course data structure
+        const courseData = {
+            1: {
+                1: { title: "Módulo 1 - Tema 1: Qué es SketchUp", description: "Introducción al software SketchUp, sus características principales y aplicaciones en diseño 3D.", duration: "5 min", video: "dQw4w9WgXcQ" },
+                2: { title: "Módulo 1 - Tema 2: Interfaz del programa", description: "Conoce la interfaz de SketchUp, sus paneles, herramientas y cómo personalizarla.", duration: "5 min", video: "dQw4w9WgXcQ" },
+                3: { title: "Módulo 1 - Tema 3: Herramientas básicas", description: "Primeras herramientas esenciales para comenzar a modelar en 3D.", duration: "5 min", video: "dQw4w9WgXcQ" },
+                4: { title: "Módulo 1 - Tema 4: Navegación en 3D", description: "Aprende a moverte en el espacio 3D, rotar, zoom y orbitar la cámara.", duration: "5 min", video: "dQw4w9WgXcQ" },
+                5: { title: "Módulo 1 - Tema 5: Primer proyecto simple", description: "Crea tu primer modelo 3D simple aplicando lo aprendido.", duration: "5 min", video: "dQw4w9WgXcQ" }
+            },
+            2: {
+                1: { title: "Módulo 2 - Tema 1: Línea y Lápiz", description: "Herramienta de línea y lápiz para crear formas 2D básicas.", duration: "6 min", video: "dQw4w9WgXcQ" },
+                2: { title: "Módulo 2 - Tema 2: Rectángulo y Círculo", description: "Creación de rectángulos y círculos perfectos.", duration: "6 min", video: "dQw4w9WgXcQ" },
+                3: { title: "Módulo 2 - Tema 3: Empujar/Tirar", description: "Convierte formas 2D en objetos 3D con Push/Pull.", duration: "6 min", video: "dQw4w9WgXcQ" },
+                4: { title: "Módulo 2 - Tema 4: Mover y Copiar", description: "Mueve y duplica objetos con precisión.", duration: "6 min", video: "dQw4w9WgXcQ" },
+                5: { title: "Módulo 2 - Tema 5: Rotar y Escalar", description: "Rota y cambia el tamaño de tus modelos.", duration: "6 min", video: "dQw4w9WgXcQ" }
+            },
+            // Add remaining modules...
+        };
 
+        let completedThemes = [];
+        const totalThemes = 25; // 5 modules × 5 themes
+
+        // Toggle module expansion
+        function toggleModule(moduleId) {
+            const themesList = document.getElementById(`themes-${moduleId}`);
+            const expandIcon = document.getElementById(`expand-icon-${moduleId}`);
+            
+            themesList.classList.toggle('expanded');
+            expandIcon.classList.toggle('expanded');
+        }
+
+        // Load specific theme
+        function loadTheme(moduleId, themeId) {
+            const themeData = courseData[moduleId]?.[themeId];
+            if (!themeData) return;
+
+            // Update content
+            document.getElementById('currentTopicTitle').textContent = themeData.title;
+            document.getElementById('currentTopicDescription').textContent = themeData.description;
+            document.getElementById('currentTopicDuration').textContent = themeData.duration;
+            document.getElementById('videoPlayer').src = `https://www.youtube.com/embed/${themeData.video}`;
+
+            // Update active states
+            document.querySelectorAll('.theme-item').forEach(item => item.classList.remove('active'));
+            document.querySelectorAll('.module-header').forEach(header => header.classList.remove('active'));
+            
+            event.target.closest('.theme-item').classList.add('active');
+            event.target.closest('.module-item').querySelector('.module-header').classList.add('active');
+        }
+
+        // Mark theme as completed
+        function markAsCompleted() {
+            const activeTheme = document.querySelector('.theme-item.active');
+            if (!activeTheme) return;
+
+            activeTheme.classList.add('completed');
+            activeTheme.querySelector('.theme-icon').textContent = '✓';
+
+            // Update progress
+            completedThemes.push(activeTheme);
+            updateProgress();
+
+            alert('¡Tema completado! 🎉');
+        }
+
+        // Update progress bar
         function updateProgress() {
-            progress = (completedModules / totalModules) * 100;
+            const progress = (completedThemes.length / totalThemes) * 100;
             document.getElementById('progressFill').style.width = progress + '%';
             document.getElementById('progressPercentage').textContent = Math.round(progress) + '%';
         }
 
-        function markAsCompleted() {
-            if (completedModules < totalModules) {
-                completedModules++;
-                updateProgress();
-                alert('¡Módulo completado! 🎉\n\nProgreso actualizado: ' + Math.round(progress) + '%');
-                
-                if (completedModules === totalModules) {
-                    document.querySelector('.btn-evaluation').disabled = false;
-                    alert('¡Felicidades! Has completado todos los módulos.\nYa puedes realizar la evaluación final.');
-                }
-            }
+        // Ask question
+        function askQuestion() {
+            alert('Función de preguntas en desarrollo. Pronto podrás hacer preguntas al instructor.');
         }
 
-        // Función de descarga desde Google Drive
-        function downloadFromDrive(fileType) {
-            // URLs DE GOOGLE DRIVE - REEMPLAZA CON TUS URLs REALES
-            const driveUrls = {
-                'pdf': 'https://drive.google.com/file/d/REEMPLAZA_CON_ID_PDF/view?usp=sharing',
-                'skp': 'https://drive.google.com/file/d/REEMPLAZA_CON_ID_SKP/view?usp=sharing',
-                'zip': 'https://drive.google.com/file/d/REEMPLAZA_CON_ID_ZIP/view?usp=sharing'
-            };
-
-            const url = driveUrls[fileType];
-            
-            // Abrir Google Drive en nueva pestaña
-            window.open(url, '_blank');
-            
-            alert('✅ Abriendo Google Drive\n\nHaz clic en el botón de descarga (⬇) en la página de Google Drive.');
+        // Download resource
+        function downloadResource(type) {
+            alert(`Descargando recurso: ${type}...`);
         }
 
-        // Inicializar progreso
+        // Initialize
         updateProgress();
     </script>
 </body>
 </html>
-```
-
----
-
-## **✅ Cambios implementados:**
-
-- ✅ **Botones "⬇ Descargar"** agregados
-- ✅ **Función `downloadFromDrive()`** configurada
-- ✅ **URLs de ejemplo** listas para reemplazar
-- ✅ **Alerta informativa** al hacer clic
-
----
-
-## **📌 SIGUIENTE PASO - Subir tus archivos:**
-
-1. **Sube los 3 archivos a Google Drive**
-2. **Hazlos públicos** (Compartir → Cualquier persona con el enlace)
-3. **Copia las URLs que se ven así:**
-```
-   https://drive.google.com/file/d/1AbCdEfGhIjKlMnOpQrStUvWxYz/view?usp=sharing
