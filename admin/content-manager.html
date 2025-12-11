@@ -1938,7 +1938,11 @@
 
             const course = courseContent[currentCourse];
             
+            // Filter only module entries (modulo1, modulo2, etc.)
             for (let [moduleId, moduleData] of Object.entries(course)) {
+                // Skip non-module properties like 'nombre'
+                if (!moduleId.startsWith('modulo')) continue;
+                
                 const moduleCard = document.createElement('div');
                 moduleCard.className = 'module-card';
                 
