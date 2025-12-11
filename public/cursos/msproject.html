@@ -70,6 +70,52 @@
     </style>
 </head>
 <body>
+
+    <!-- Login Screen -->
+    <div id="loginScreen" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); display: flex; justify-content: center; align-items: center; z-index: 10000;">
+        <div style="background: white; padding: 3rem; border-radius: 15px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); max-width: 400px; width: 90%; text-align: center;">
+            <h1 style="color: #667eea; margin-bottom: 1rem; font-size: 1.8rem;">🔒 Acceso al Curso</h1>
+            <h2 style="color: #2c3e50; margin-bottom: 2rem; font-size: 1.2rem;">MS-Project</h2>
+            <p style="color: #666; margin-bottom: 2rem;">Ingresa la contraseña para acceder al contenido</p>
+            <input type="password" id="coursePassword" placeholder="Contraseña del curso" style="width: 100%; padding: 1rem; border: 2px solid #e0e0e0; border-radius: 8px; font-size: 1rem; margin-bottom: 1rem; box-sizing: border-box;" onkeypress="if(event.key==='Enter') checkCoursePassword()">
+            <button onclick="checkCoursePassword()" style="width: 100%; padding: 1rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: transform 0.3s;">Acceder</button>
+            <p id="errorMessage" style="color: #e74c3c; margin-top: 1rem; display: none;">❌ Contraseña incorrecta</p>
+            <a href="../cursos-disponibles.html" style="display: inline-block; margin-top: 1.5rem; color: #667eea; text-decoration: none; font-size: 0.9rem;">← Volver a Cursos</a>
+        </div>
+    </div>
+
+    <script>
+        // Check if already authenticated
+        const courseId = 'msproject';
+        const correctPassword = 'na777***';
+        
+        // Check session storage
+        if (sessionStorage.getItem('authenticated_' + courseId) === 'true') {
+            document.getElementById('loginScreen').style.display = 'none';
+        }
+        
+        function checkCoursePassword() {
+            const password = document.getElementById('coursePassword').value;
+            const errorMsg = document.getElementById('errorMessage');
+            
+            if (password === correctPassword) {
+                // Store authentication in session
+                sessionStorage.setItem('authenticated_' + courseId, 'true');
+                // Hide login screen
+                document.getElementById('loginScreen').style.display = 'none';
+                errorMsg.style.display = 'none';
+            } else {
+                // Show error
+                errorMsg.style.display = 'block';
+                document.getElementById('coursePassword').value = '';
+                document.getElementById('coursePassword').focus();
+            }
+        }
+        
+        // Focus on password input
+        document.getElementById('coursePassword').focus();
+    </script>
+
     <nav>
         <div class="nav-left">
             <a href="../cursos-disponibles.html" class="btn-back">← Volver a Mis Cursos</a>
