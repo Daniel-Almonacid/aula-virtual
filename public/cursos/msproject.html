@@ -45,8 +45,8 @@
         .module-info { flex: 1; }
         .module-title { font-weight: 600; margin-bottom: 0.3rem; }
         .module-duration { font-size: 0.9rem; opacity: 0.8; }
-        .themes-list { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #f8f9fa; }
-        .themes-list.expanded { max-height: 500px; }
+        .themes-list { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background: #f8f9fa;  overflow-y: auto;}
+        .themes-list.expanded { max-height: 2000px; }
         .theme-item { padding: 0.75rem 1rem 0.75rem 3rem; cursor: pointer; transition: all 0.3s; display: flex; align-items: center; gap: 0.75rem; border-left: 3px solid transparent; }
         .theme-item:hover { background: #e9ecef; border-left-color: #667eea; }
         .theme-item.active { background: #e3f2fd; border-left-color: #667eea; font-weight: 600; }
@@ -371,8 +371,8 @@
         let completedThemes = [];
         const totalThemes = 25;
         function toggleModule(moduleId) {
-            const themesList = document.getElementById(\`themes-\${moduleId}\`);
-            const expandIcon = document.getElementById(\`expand-icon-\${moduleId}\`);
+            const themesList = document.getElementById(`themes-${moduleId}`);
+            const expandIcon = document.getElementById(`expand-icon-${moduleId}`);
             themesList.classList.toggle('expanded');
             expandIcon.classList.toggle('expanded');
         }
@@ -382,7 +382,7 @@
             document.getElementById('currentTopicTitle').textContent = themeData.title;
             document.getElementById('currentTopicDescription').textContent = themeData.description;
             document.getElementById('currentTopicDuration').textContent = themeData.duration;
-            document.getElementById('videoPlayer').src = \`https://www.youtube.com/embed/\${themeData.video}\`;
+            document.getElementById('videoPlayer').src = `https://www.youtube.com/embed/${themeData.video}`;
             document.querySelectorAll('.theme-item').forEach(item => item.classList.remove('active'));
             document.querySelectorAll('.module-header').forEach(header => header.classList.remove('active'));
             event.target.closest('.theme-item').classList.add('active');
@@ -406,7 +406,7 @@
             alert('Función de preguntas en desarrollo. Pronto podrás hacer preguntas al instructor.');
         }
         function downloadResource(type) {
-            alert(\`Descargando recurso: \${type}...\`);
+            alert(`Descargando recurso: ${type}...`);
         }
         updateProgress();
     </script>
