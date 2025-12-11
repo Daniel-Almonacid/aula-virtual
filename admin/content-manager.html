@@ -47,6 +47,22 @@
             background: rgba(255,255,255,0.3);
         }
 
+        .btn-export {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            font-weight: 600;
+            margin-left: 1rem;
+        }
+
+        .btn-export:hover {
+            background: #218838;
+        }
+
         .container {
             max-width: 1400px;
             margin: 2rem auto;
@@ -423,7 +439,10 @@
     <!-- Top Navigation -->
     <div class="top-nav">
         <h1>📁 Gestión de Contenido de Cursos</h1>
-        <a href="dashboard.html" class="btn-back">← Volver al Dashboard</a>
+        <div>
+            <button onclick="exportJSON()" class="btn-export">📥 Exportar JSON</button>
+            <a href="dashboard.html" class="btn-back">← Volver al Dashboard</a>
+        </div>
     </div>
 
     <!-- Main Container -->
@@ -2101,6 +2120,19 @@
             
             // Show success message
             alert('✅ Cambios guardados exitosamente!\n\nRecuerda: Para hacer los cambios permanentes, descarga el JSON y súbelo a tu repositorio.');
+        }
+
+        // Export JSON function
+        function exportJSON() {
+            const json = JSON.stringify(courseContent, null, 2);
+            const blob = new Blob([json], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'course-content-updated.json';
+            a.click();
+            URL.revokeObjectURL(url);
+            alert('✅ JSON exportado exitosamente!\n\nArchivo: course-content-updated.json\nUbicación: Carpeta de Descargas\n\nPróximo paso: Copia este archivo a tu proyecto y súbelo a GitHub.');
         }
 
         // Load data from localStorage if available
