@@ -1,0 +1,1370 @@
+{
+  "sketchup": {
+    "nombre": "SketchUp para Principiantes PRO",
+    "modulo1": {
+      "titulo": "Módulo 1: Introducción a SketchUp",
+      "temas": {
+        "tema1": {
+          "titulo": "1.1 Qué es SketchUp",
+          "descripcion": "Introducción al software SketchUp, sus características principales y aplicaciones en diseño 3D.",
+          "duracion": "5 min",
+          "video": "dQw4w9WgXcQ",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema2": {
+          "titulo": "1.2 Interfaz del programa",
+          "descripcion": "Conoce la interfaz de SketchUp, sus paneles, herramientas y cómo personalizarla.",
+          "duracion": "5 min",
+          "video": "dQw4w9WgXcQ",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema3": {
+          "titulo": "1.3 Herramientas básicas",
+          "descripcion": "Primeras herramientas esenciales para comenzar a modelar en 3D.",
+          "duracion": "5 min",
+          "video": "dQw4w9WgXcQ",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema4": {
+          "titulo": "1.4 Navegación en 3D",
+          "descripcion": "Aprende a moverte en el espacio 3D, rotar, zoom y orbitar la cámara.",
+          "duracion": "5 min",
+          "video": "dQw4w9WgXcQ",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema5": {
+          "titulo": "1.5 Primer proyecto simple",
+          "descripcion": "Crea tu primer modelo 3D simple aplicando lo aprendido.",
+          "duracion": "5 min",
+          "video": "dQw4w9WgXcQ",
+          "tipo_video": "youtube",
+          "recursos": []
+        }
+      }
+    },
+    "modulo2": {
+      "titulo": "Módulo 2: Herramientas de Dibujo",
+      "temas": {
+        "tema1": {
+          "titulo": "2.1 Líneas y rectángulos",
+          "descripcion": "Herramientas básicas de dibujo: línea, rectángulo y sus variantes.",
+          "duracion": "6 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema2": {
+          "titulo": "2.2 Círculos y arcos",
+          "descripcion": "Cómo dibujar círculos perfectos, arcos y formas circulares.",
+          "duracion": "6 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema3": {
+          "titulo": "2.3 Polígonos",
+          "descripcion": "Creación de formas poligonales regulares e irregulares.",
+          "duracion": "6 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema4": {
+          "titulo": "2.4 Mano alzada",
+          "descripcion": "Dibujo libre y curvas personalizadas con la herramienta mano alzada.",
+          "duracion": "6 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema5": {
+          "titulo": "2.5 Práctica de dibujo",
+          "descripcion": "Ejercicios prácticos combinando todas las herramientas de dibujo.",
+          "duracion": "6 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        }
+      }
+    },
+    "modulo3": {
+      "titulo": "Módulo 3: Modelado 3D Básico",
+      "temas": {
+        "tema1": {
+          "titulo": "3.1 Empujar/Tirar",
+          "descripcion": "La herramienta más importante: convertir 2D en 3D mediante Push/Pull.",
+          "duracion": "7 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema2": {
+          "titulo": "3.2 Sígueme (Follow Me)",
+          "descripcion": "Crear formas complejas siguiendo un camino con Follow Me.",
+          "duracion": "7 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema3": {
+          "titulo": "3.3 Mover y copiar",
+          "descripcion": "Técnicas avanzadas de movimiento y copiado de objetos.",
+          "duracion": "7 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema4": {
+          "titulo": "3.4 Rotar y escalar",
+          "descripcion": "Transformación de objetos: rotación precisa y escalado proporcional.",
+          "duracion": "7 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema5": {
+          "titulo": "3.5 Ejercicio de modelado",
+          "descripcion": "Proyecto práctico: crear un objeto 3D completo.",
+          "duracion": "7 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        }
+      }
+    },
+    "modulo4": {
+      "titulo": "Módulo 4: Diseño de Muebles",
+      "temas": {
+        "tema1": {
+          "titulo": "4.1 Medidas precisas",
+          "descripcion": "Sistema de medidas en SketchUp y modelado con dimensiones exactas.",
+          "duracion": "8 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema2": {
+          "titulo": "4.2 Componentes",
+          "descripcion": "Crear y gestionar componentes reutilizables en tus diseños.",
+          "duracion": "8 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema3": {
+          "titulo": "4.3 Grupos",
+          "descripcion": "Organización del modelo mediante grupos y jerarquías.",
+          "duracion": "8 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema4": {
+          "titulo": "4.4 Diseño de una mesa",
+          "descripcion": "Proyecto completo: diseñar una mesa de comedor desde cero.",
+          "duracion": "8 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema5": {
+          "titulo": "4.5 Diseño de un armario",
+          "descripcion": "Proyecto avanzado: crear un armario modular completo.",
+          "duracion": "8 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        }
+      }
+    },
+    "modulo5": {
+      "titulo": "Módulo 5: Proyecto Final Completo",
+      "temas": {
+        "tema1": {
+          "titulo": "5.1 Planificación del proyecto",
+          "descripcion": "Cómo planificar y organizar un proyecto de diseño completo.",
+          "duracion": "10 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema2": {
+          "titulo": "5.2 Modelado completo",
+          "descripcion": "Aplicar todas las técnicas aprendidas en un proyecto real.",
+          "duracion": "10 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema3": {
+          "titulo": "5.3 Materiales y texturas",
+          "descripcion": "Aplicación de materiales realistas y texturas a tu modelo.",
+          "duracion": "10 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema4": {
+          "titulo": "5.4 Iluminación y renderizado",
+          "descripcion": "Configuración de luz y renderizado para presentaciones profesionales.",
+          "duracion": "10 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema5": {
+          "titulo": "5.5 Exportación y presentación",
+          "descripcion": "Exportar tu proyecto en diferentes formatos y crear presentaciones.",
+          "duracion": "10 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        }
+      }
+    }
+  },
+  "opencutilist": {
+    "nombre": "OpenCutList - Optimización de Cortes",
+    "modulo1": {
+      "titulo": "Módulo 1: Introducción a OpenCutList",
+      "temas": {
+        "tema1": {
+          "titulo": "1.1 Qué es OpenCutList",
+          "descripcion": "Introducción al plugin OpenCutList para optimización de cortes en carpintería.",
+          "duracion": "5 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema2": {
+          "titulo": "1.2 Instalación del plugin",
+          "descripcion": "Cómo instalar y configurar OpenCutList en SketchUp.",
+          "duracion": "5 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema3": {
+          "titulo": "1.3 Interfaz y herramientas",
+          "descripcion": "Conoce la interfaz del plugin y sus herramientas principales.",
+          "duracion": "5 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema4": {
+          "titulo": "1.4 Configuración inicial",
+          "descripcion": "Configurar medidas, materiales y preferencias del plugin.",
+          "duracion": "5 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema5": {
+          "titulo": "1.5 Primer proyecto de prueba",
+          "descripcion": "Crea tu primera lista de cortes con un proyecto simple.",
+          "duracion": "5 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        }
+      }
+    },
+    "modulo2": {
+      "titulo": "Módulo 2: Medidas y Materiales",
+      "temas": {
+        "tema1": {
+          "titulo": "2.1 Definir medidas de tableros",
+          "descripcion": "Cómo configurar las dimensiones de tus tableros de trabajo.",
+          "duracion": "6 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema2": {
+          "titulo": "2.2 Espesor de materiales",
+          "descripcion": "Configurar espesores estándar de madera y tableros.",
+          "duracion": "6 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema3": {
+          "titulo": "2.3 Vetas y dirección",
+          "descripcion": "Gestión de la dirección de vetas en cortes.",
+          "duracion": "6 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema4": {
+          "titulo": "2.4 Desperdicio y márgenes",
+          "descripcion": "Configurar márgenes de seguridad y minimizar desperdicios.",
+          "duracion": "6 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema5": {
+          "titulo": "2.5 Biblioteca de materiales",
+          "descripcion": "Crear y gestionar tu biblioteca de materiales.",
+          "duracion": "6 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        }
+      }
+    },
+    "modulo3": {
+      "titulo": "Módulo 3: Optimización de Cortes",
+      "temas": {
+        "tema1": {
+          "titulo": "3.1 Algoritmos de optimización",
+          "descripcion": "Entiende cómo OpenCutList optimiza los cortes.",
+          "duracion": "7 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema2": {
+          "titulo": "3.2 Opciones de corte",
+          "descripcion": "Configurar opciones avanzadas de corte y sierra.",
+          "duracion": "7 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema3": {
+          "titulo": "3.3 Agrupación de piezas",
+          "descripcion": "Agrupar piezas similares para optimizar cortes.",
+          "duracion": "7 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema4": {
+          "titulo": "3.4 Rotación de piezas",
+          "descripcion": "Permitir rotación de piezas para mejor aprovechamiento.",
+          "duracion": "7 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema5": {
+          "titulo": "3.5 Análisis de resultados",
+          "descripcion": "Interpretar y mejorar los resultados de optimización.",
+          "duracion": "7 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        }
+      }
+    },
+    "modulo4": {
+      "titulo": "Módulo 4: Generación de Reportes",
+      "temas": {
+        "tema1": {
+          "titulo": "4.1 Lista de cortes",
+          "descripcion": "Generar lista completa de cortes para producción.",
+          "duracion": "8 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema2": {
+          "titulo": "4.2 Planos de corte",
+          "descripcion": "Crear planos visuales de distribución de cortes.",
+          "duracion": "8 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema3": {
+          "titulo": "4.3 Etiquetado de piezas",
+          "descripcion": "Sistema de etiquetado para identificación de piezas.",
+          "duracion": "8 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema4": {
+          "titulo": "4.4 Exportación a PDF",
+          "descripcion": "Exportar reportes y planos a formato PDF.",
+          "duracion": "8 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema5": {
+          "titulo": "4.5 Exportación a Excel",
+          "descripcion": "Exportar listas de cortes a hojas de cálculo.",
+          "duracion": "8 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        }
+      }
+    },
+    "modulo5": {
+      "titulo": "Módulo 5: Proyecto Completo de Mueble",
+      "temas": {
+        "tema1": {
+          "titulo": "5.1 Diseño del mueble",
+          "descripcion": "Diseñar un mueble completo en SketchUp para aplicar OpenCutList.",
+          "duracion": "12 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema2": {
+          "titulo": "5.2 Aplicar OpenCutList",
+          "descripcion": "Usar el plugin en tu proyecto real de carpintería.",
+          "duracion": "12 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema3": {
+          "titulo": "5.3 Optimizar cortes",
+          "descripcion": "Refinar la optimización para mejor aprovechamiento de material.",
+          "duracion": "12 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema4": {
+          "titulo": "5.4 Documentación completa",
+          "descripcion": "Crear todos los documentos necesarios para producción.",
+          "duracion": "12 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema5": {
+          "titulo": "5.5 Producción final",
+          "descripcion": "Guía para llevar el proyecto a producción en taller.",
+          "duracion": "12 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        }
+      }
+    }
+  },
+  "msproject": {
+    "nombre": "MS-Project - Gestión de Proyectos",
+    "modulo1": {
+      "titulo": "Módulo 1: Introducción a MS-Project",
+      "temas": {
+        "tema1": {
+          "titulo": "1.1 Qué es MS-Project",
+          "descripcion": "Introducción al software de gestión de proyectos Microsoft Project.",
+          "duracion": "5 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema2": {
+          "titulo": "1.2 Interfaz del programa",
+          "descripcion": "Conoce la interfaz de MS-Project, vistas y paneles principales.",
+          "duracion": "5 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema3": {
+          "titulo": "1.3 Conceptos básicos",
+          "descripcion": "Tareas, hitos, recursos y calendario en gestión de proyectos.",
+          "duracion": "5 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema4": {
+          "titulo": "1.4 Crear primer proyecto",
+          "descripcion": "Configurar y crear tu primer proyecto desde cero.",
+          "duracion": "5 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema5": {
+          "titulo": "1.5 Guardar y plantillas",
+          "descripcion": "Opciones de guardado y uso de plantillas predefinidas.",
+          "duracion": "5 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        }
+      }
+    },
+    "modulo2": {
+      "titulo": "Módulo 2: Gestión de Tareas",
+      "temas": {
+        "tema1": {
+          "titulo": "2.1 Crear y editar tareas",
+          "descripcion": "Cómo crear, editar y organizar tareas del proyecto.",
+          "duracion": "6 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema2": {
+          "titulo": "2.2 Dependencias entre tareas",
+          "descripcion": "Establecer relaciones y dependencias entre tareas.",
+          "duracion": "6 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema3": {
+          "titulo": "2.3 Duraciones e hitos",
+          "descripcion": "Configurar duraciones de tareas y definir hitos importantes.",
+          "duracion": "6 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema4": {
+          "titulo": "2.4 Tareas recurrentes",
+          "descripcion": "Crear tareas que se repiten periódicamente.",
+          "duracion": "6 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema5": {
+          "titulo": "2.5 Organización de tareas",
+          "descripcion": "Estructurar tareas con subtareas y fases del proyecto.",
+          "duracion": "6 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        }
+      }
+    },
+    "modulo3": {
+      "titulo": "Módulo 3: Gestión de Recursos",
+      "temas": {
+        "tema1": {
+          "titulo": "3.1 Agregar recursos",
+          "descripcion": "Definir recursos humanos, materiales y costos.",
+          "duracion": "7 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema2": {
+          "titulo": "3.2 Asignar recursos",
+          "descripcion": "Asignar recursos a tareas y gestionar disponibilidad.",
+          "duracion": "7 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema3": {
+          "titulo": "3.3 Calendarios de recursos",
+          "descripcion": "Configurar horarios y disponibilidad de recursos.",
+          "duracion": "7 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema4": {
+          "titulo": "3.4 Costos del proyecto",
+          "descripcion": "Gestión de costos y presupuesto del proyecto.",
+          "duracion": "7 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema5": {
+          "titulo": "3.5 Nivelación de recursos",
+          "descripcion": "Resolver conflictos y sobreasignación de recursos.",
+          "duracion": "7 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        }
+      }
+    },
+    "modulo4": {
+      "titulo": "Módulo 4: Seguimiento y Control",
+      "temas": {
+        "tema1": {
+          "titulo": "4.1 Línea base del proyecto",
+          "descripcion": "Establecer y guardar la línea base para comparaciones.",
+          "duracion": "8 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema2": {
+          "titulo": "4.2 Actualizar progreso",
+          "descripcion": "Registrar avances y porcentajes de completitud.",
+          "duracion": "8 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema3": {
+          "titulo": "4.3 Diagrama de Gantt",
+          "descripcion": "Interpretar y personalizar el diagrama de Gantt.",
+          "duracion": "8 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema4": {
+          "titulo": "4.4 Ruta crítica",
+          "descripcion": "Identificar y gestionar la ruta crítica del proyecto.",
+          "duracion": "8 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema5": {
+          "titulo": "4.5 Informes de estado",
+          "descripcion": "Generar reportes y dashboards de estado del proyecto.",
+          "duracion": "8 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        }
+      }
+    },
+    "modulo5": {
+      "titulo": "Módulo 5: Proyecto Real Completo",
+      "temas": {
+        "tema1": {
+          "titulo": "5.1 Definición del proyecto",
+          "descripcion": "Planificar y definir alcance de un proyecto real.",
+          "duracion": "10 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema2": {
+          "titulo": "5.2 Planificación completa",
+          "descripcion": "Crear plan completo con todas las tareas y recursos.",
+          "duracion": "10 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema3": {
+          "titulo": "5.3 Gestión de riesgos",
+          "descripcion": "Identificar y mitigar riesgos del proyecto.",
+          "duracion": "10 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema4": {
+          "titulo": "5.4 Seguimiento ejecutivo",
+          "descripcion": "Monitorear y controlar la ejecución del proyecto.",
+          "duracion": "10 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema5": {
+          "titulo": "5.5 Cierre y documentación",
+          "descripcion": "Cerrar proyecto y generar documentación final.",
+          "duracion": "10 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        }
+      }
+    }
+  },
+  "canva": {
+    "nombre": "Canva - Diseño Gráfico Profesional",
+    "modulo1": {
+      "titulo": "Módulo 1: Introducción a Canva",
+      "temas": {
+        "tema1": {
+          "titulo": "1.1 Qué es Canva",
+          "descripcion": "Introducción a la plataforma de diseño gráfico Canva.",
+          "duracion": "5 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema2": {
+          "titulo": "1.2 Crear cuenta",
+          "descripcion": "Registro y configuración de cuenta en Canva.",
+          "duracion": "5 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema3": {
+          "titulo": "1.3 Interfaz de Canva",
+          "descripcion": "Conoce el editor, herramientas y panel de elementos.",
+          "duracion": "5 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema4": {
+          "titulo": "1.4 Plantillas prediseñadas",
+          "descripcion": "Explorar y usar plantillas profesionales.",
+          "duracion": "5 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema5": {
+          "titulo": "1.5 Primer diseño simple",
+          "descripcion": "Crear tu primer diseño usando plantillas.",
+          "duracion": "5 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        }
+      }
+    },
+    "modulo2": {
+      "titulo": "Módulo 2: Diseño Gráfico Básico",
+      "temas": {
+        "tema1": {
+          "titulo": "2.1 Teoría del color",
+          "descripcion": "Principios de color, paletas y combinaciones efectivas.",
+          "duracion": "6 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema2": {
+          "titulo": "2.2 Tipografía",
+          "descripcion": "Selección y combinación de fuentes tipográficas.",
+          "duracion": "6 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema3": {
+          "titulo": "2.3 Composición visual",
+          "descripcion": "Principios de diseño: equilibrio, contraste y jerarquía.",
+          "duracion": "6 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema4": {
+          "titulo": "2.4 Imágenes y fotos",
+          "descripcion": "Trabajar con imágenes, recortes y ajustes.",
+          "duracion": "6 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema5": {
+          "titulo": "2.5 Elementos gráficos",
+          "descripcion": "Usar formas, iconos, líneas y elementos decorativos.",
+          "duracion": "6 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        }
+      }
+    },
+    "modulo3": {
+      "titulo": "Módulo 3: Diseños Avanzados",
+      "temas": {
+        "tema1": {
+          "titulo": "3.1 Posts para redes sociales",
+          "descripcion": "Crear publicaciones atractivas para Instagram, Facebook, etc.",
+          "duracion": "7 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema2": {
+          "titulo": "3.2 Presentaciones",
+          "descripcion": "Diseñar presentaciones profesionales y dinámicas.",
+          "duracion": "7 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema3": {
+          "titulo": "3.3 Infografías",
+          "descripcion": "Crear infografías visualmente atractivas y claras.",
+          "duracion": "7 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema4": {
+          "titulo": "3.4 Flyers y pósters",
+          "descripcion": "Diseñar material publicitario impreso.",
+          "duracion": "7 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema5": {
+          "titulo": "3.5 Animaciones simples",
+          "descripcion": "Agregar animaciones a tus diseños.",
+          "duracion": "7 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        }
+      }
+    },
+    "modulo4": {
+      "titulo": "Módulo 4: Branding y Marca Personal",
+      "temas": {
+        "tema1": {
+          "titulo": "4.1 Identidad visual",
+          "descripcion": "Conceptos de branding y construcción de marca.",
+          "duracion": "8 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema2": {
+          "titulo": "4.2 Brand Kit",
+          "descripcion": "Crear kit de marca con colores, fuentes y logos.",
+          "duracion": "8 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema3": {
+          "titulo": "4.3 Logos",
+          "descripcion": "Diseñar logos profesionales para tu marca.",
+          "duracion": "8 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema4": {
+          "titulo": "4.4 Plantillas de marca",
+          "descripcion": "Crear plantillas consistentes con tu identidad.",
+          "duracion": "8 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema5": {
+          "titulo": "4.5 Manual de marca",
+          "descripcion": "Documentar guías de uso de tu marca.",
+          "duracion": "8 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        }
+      }
+    },
+    "modulo5": {
+      "titulo": "Módulo 5: Proyecto Profesional",
+      "temas": {
+        "tema1": {
+          "titulo": "5.1 Brief del proyecto",
+          "descripcion": "Definir objetivos y requisitos del proyecto de diseño.",
+          "duracion": "10 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema2": {
+          "titulo": "5.2 Campaña completa",
+          "descripcion": "Diseñar campaña de marketing con múltiples piezas.",
+          "duracion": "10 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema3": {
+          "titulo": "5.3 Presentación de marca",
+          "descripcion": "Crear presentación profesional de propuesta de marca.",
+          "duracion": "10 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema4": {
+          "titulo": "5.4 Portfolio digital",
+          "descripcion": "Armar portafolio con tus mejores trabajos.",
+          "duracion": "10 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema5": {
+          "titulo": "5.5 Exportación profesional",
+          "descripcion": "Exportar diseños en formatos adecuados para imprenta y web.",
+          "duracion": "10 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        }
+      }
+    }
+  },
+  "electricas": {
+    "nombre": "Instalaciones Eléctricas Domiciliarias",
+    "modulo1": {
+      "titulo": "Módulo 1: Fundamentos de Electricidad",
+      "temas": {
+        "tema1": {
+          "titulo": "1.1 Conceptos básicos",
+          "descripcion": "Voltaje, corriente, resistencia y potencia eléctrica.",
+          "duracion": "5 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema2": {
+          "titulo": "1.2 Ley de Ohm",
+          "descripcion": "Entender y aplicar la ley de Ohm en circuitos.",
+          "duracion": "5 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema3": {
+          "titulo": "1.3 Circuitos serie y paralelo",
+          "descripcion": "Diferencias y aplicaciones de circuitos serie y paralelo.",
+          "duracion": "5 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema4": {
+          "titulo": "1.4 Potencia eléctrica",
+          "descripcion": "Cálculo de potencia, consumo y eficiencia energética.",
+          "duracion": "5 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema5": {
+          "titulo": "1.5 Seguridad eléctrica",
+          "descripcion": "Normas de seguridad y prevención de accidentes.",
+          "duracion": "5 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        }
+      }
+    },
+    "modulo2": {
+      "titulo": "Módulo 2: Normativa y Seguridad",
+      "temas": {
+        "tema1": {
+          "titulo": "2.1 Código Nacional de Electricidad",
+          "descripcion": "Introducción al CNE y normativas vigentes.",
+          "duracion": "6 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema2": {
+          "titulo": "2.2 Protecciones eléctricas",
+          "descripcion": "Fusibles, interruptores termomagnéticos y diferenciales.",
+          "duracion": "6 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema3": {
+          "titulo": "2.3 Sistemas de puesta a tierra",
+          "descripcion": "Importancia y tipos de sistemas de puesta a tierra.",
+          "duracion": "6 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema4": {
+          "titulo": "2.4 Tableros eléctricos",
+          "descripcion": "Componentes, distribución y armado de tableros.",
+          "duracion": "6 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema5": {
+          "titulo": "2.5 Equipos de protección",
+          "descripcion": "EPP para trabajos eléctricos y primeros auxilios.",
+          "duracion": "6 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        }
+      }
+    },
+    "modulo3": {
+      "titulo": "Módulo 3: Instalaciones Básicas",
+      "temas": {
+        "tema1": {
+          "titulo": "3.1 Conductores eléctricos",
+          "descripcion": "Tipos de cables, calibres y selección apropiada.",
+          "duracion": "7 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema2": {
+          "titulo": "3.2 Canalizaciones",
+          "descripcion": "Tubos conduit, canaletas y bandejas portacables.",
+          "duracion": "7 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema3": {
+          "titulo": "3.3 Tomacorrientes",
+          "descripcion": "Instalación de enchufes simples, dobles y especiales.",
+          "duracion": "7 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema4": {
+          "titulo": "3.4 Interruptores",
+          "descripcion": "Simples, dobles, conmutación y escalera.",
+          "duracion": "7 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema5": {
+          "titulo": "3.5 Iluminación básica",
+          "descripcion": "Instalación de luminarias y circuitos de iluminación.",
+          "duracion": "7 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        }
+      }
+    },
+    "modulo4": {
+      "titulo": "Módulo 4: Instalaciones Avanzadas",
+      "temas": {
+        "tema1": {
+          "titulo": "4.1 Circuitos especiales",
+          "descripcion": "Cocina, lavandería, aire acondicionado y otros.",
+          "duracion": "8 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema2": {
+          "titulo": "4.2 Sistemas trifásicos",
+          "descripcion": "Instalaciones trifásicas para cargas industriales.",
+          "duracion": "8 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema3": {
+          "titulo": "4.3 Domótica básica",
+          "descripcion": "Introducción a automatización del hogar.",
+          "duracion": "8 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema4": {
+          "titulo": "4.4 Medidores eléctricos",
+          "descripcion": "Instalación de medidores y acometidas.",
+          "duracion": "8 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema5": {
+          "titulo": "4.5 Sistemas de respaldo",
+          "descripcion": "UPS, generadores y sistemas de emergencia.",
+          "duracion": "8 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        }
+      }
+    },
+    "modulo5": {
+      "titulo": "Módulo 5: Proyecto Completo",
+      "temas": {
+        "tema1": {
+          "titulo": "5.1 Diseño de instalación",
+          "descripcion": "Planificar instalación eléctrica de una vivienda.",
+          "duracion": "10 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema2": {
+          "titulo": "5.2 Cálculo de cargas",
+          "descripcion": "Determinar demanda eléctrica total y circuitos.",
+          "duracion": "10 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema3": {
+          "titulo": "5.3 Ejecución de obra",
+          "descripcion": "Instalación completa paso a paso con medidas de seguridad.",
+          "duracion": "10 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema4": {
+          "titulo": "5.4 Pruebas y mediciones",
+          "descripcion": "Verificación de continuidad, aislamiento y funcionamiento.",
+          "duracion": "10 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema5": {
+          "titulo": "5.5 Certificación",
+          "descripcion": "Documentación y certificación de instalación eléctrica.",
+          "duracion": "10 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        }
+      }
+    }
+  },
+  "tierra": {
+    "nombre": "Sistemas de Puesta a Tierra",
+    "modulo1": {
+      "titulo": "Módulo 1: Fundamentos de Puesta a Tierra",
+      "temas": {
+        "tema1": {
+          "titulo": "1.1 Conceptos básicos",
+          "descripcion": "Qué es la puesta a tierra y por qué es importante.",
+          "duracion": "5 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema2": {
+          "titulo": "1.2 Resistividad del suelo",
+          "descripcion": "Factores que afectan la resistividad del terreno.",
+          "duracion": "5 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema3": {
+          "titulo": "1.3 Tipos de sistemas",
+          "descripcion": "TT, TN, IT: características y aplicaciones.",
+          "duracion": "5 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema4": {
+          "titulo": "1.4 Normativas aplicables",
+          "descripcion": "CNE y estándares internacionales de puesta a tierra.",
+          "duracion": "5 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema5": {
+          "titulo": "1.5 Objetivos del sistema",
+          "descripcion": "Protección de personas, equipos y continuidad operativa.",
+          "duracion": "5 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        }
+      }
+    },
+    "modulo2": {
+      "titulo": "Módulo 2: Diseño de Sistemas",
+      "temas": {
+        "tema1": {
+          "titulo": "2.1 Estudio de suelo",
+          "descripcion": "Medición de resistividad mediante método de Wenner.",
+          "duracion": "6 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema2": {
+          "titulo": "2.2 Cálculo de resistencia",
+          "descripcion": "Fórmulas y métodos para calcular resistencia de puesta a tierra.",
+          "duracion": "6 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema3": {
+          "titulo": "2.3 Electrodos de tierra",
+          "descripcion": "Tipos: varillas, placas, mallas y su selección.",
+          "duracion": "6 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema4": {
+          "titulo": "2.4 Tratamiento de suelo",
+          "descripcion": "Métodos para mejorar conductividad del terreno.",
+          "duracion": "6 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema5": {
+          "titulo": "2.5 Diseño de malla",
+          "descripcion": "Configuración de malla de puesta a tierra para edificios.",
+          "duracion": "6 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        }
+      }
+    },
+    "modulo3": {
+      "titulo": "Módulo 3: Instalación del Sistema",
+      "temas": {
+        "tema1": {
+          "titulo": "3.1 Excavación",
+          "descripcion": "Técnicas de excavación para electrodos y conductores.",
+          "duracion": "7 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema2": {
+          "titulo": "3.2 Instalación de electrodos",
+          "descripcion": "Procedimiento correcto de hincado de varillas.",
+          "duracion": "7 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema3": {
+          "titulo": "3.3 Soldadura exotérmica",
+          "descripcion": "Técnica de soldadura cadweld para conexiones permanentes.",
+          "duracion": "7 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema4": {
+          "titulo": "3.4 Conductores de tierra",
+          "descripcion": "Selección e instalación de cables de puesta a tierra.",
+          "duracion": "7 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema5": {
+          "titulo": "3.5 Cajas de inspección",
+          "descripcion": "Instalación de cámaras de registro y mantenimiento.",
+          "duracion": "7 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        }
+      }
+    },
+    "modulo4": {
+      "titulo": "Módulo 4: Medición y Certificación",
+      "temas": {
+        "tema1": {
+          "titulo": "4.1 Instrumentos de medición",
+          "descripcion": "Telurómetros y megóhmetros: uso y calibración.",
+          "duracion": "8 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema2": {
+          "titulo": "4.2 Método de caída de potencial",
+          "descripcion": "Medición precisa de resistencia de puesta a tierra.",
+          "duracion": "8 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema3": {
+          "titulo": "4.3 Interpretación de resultados",
+          "descripcion": "Análisis de mediciones y valores aceptables.",
+          "duracion": "8 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema4": {
+          "titulo": "4.4 Protocolo de pruebas",
+          "descripcion": "Documentar mediciones según normativas.",
+          "duracion": "8 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema5": {
+          "titulo": "4.5 Mantenimiento preventivo",
+          "descripcion": "Programa de inspección y mantenimiento periódico.",
+          "duracion": "8 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        }
+      }
+    },
+    "modulo5": {
+      "titulo": "Módulo 5: Proyecto Real Completo",
+      "temas": {
+        "tema1": {
+          "titulo": "5.1 Inspección del terreno",
+          "descripcion": "Evaluación inicial y planificación del sistema.",
+          "duracion": "10 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema2": {
+          "titulo": "5.2 Diseño del sistema",
+          "descripcion": "Elaborar proyecto completo de puesta a tierra.",
+          "duracion": "10 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema3": {
+          "titulo": "5.3 Instalación completa",
+          "descripcion": "Ejecución del proyecto con todas las etapas.",
+          "duracion": "10 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema4": {
+          "titulo": "5.4 Mediciones finales",
+          "descripcion": "Pruebas y verificación de cumplimiento normativo.",
+          "duracion": "10 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        },
+        "tema5": {
+          "titulo": "5.5 Documentación técnica",
+          "descripcion": "Memoria de cálculo, planos as-built y certificados.",
+          "duracion": "10 min",
+          "video": "",
+          "tipo_video": "youtube",
+          "recursos": []
+        }
+      }
+    }
+  }
+}
