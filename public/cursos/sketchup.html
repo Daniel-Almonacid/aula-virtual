@@ -622,9 +622,8 @@
             const videoPlayer = document.getElementById('videoPlayer');
             
             if (theme.tipo_video === 'youtube') {
-                // YouTube video - use iframe
+                // YouTube video
                 videoPlayer.src = `https://www.youtube.com/embed/${theme.video}`;
-                videoPlayer.style.display = 'block';
             } else if (theme.tipo_video === 'mp4') {
                 // MP4 video from Google Drive
                 // Extract file ID from the URL if it's a full Drive URL
@@ -638,117 +637,8 @@
                     }
                 }
                 
-                // Try direct download link for Google Drive
-                const downloadUrl = `https://drive.google.com/uc?export=download&id=${fileId}&confirm=t`;
-                
-                // Update iframe to show loading message and provide download option
-                videoPlayer.srcdoc = `
-                    <html>
-                    <head>
-                        <style>
-                            body {
-                                margin: 0;
-                                padding: 0;
-                                display: flex;
-                                flex-direction: column;
-                                justify-content: center;
-                                align-items: center;
-                                height: 100vh;
-                                background: #1a1a1a;
-                                color: white;
-                                font-family: Arial, sans-serif;
-                                text-align: center;
-                            }
-                            .container {
-                                padding: 2rem;
-                            }
-                            h2 {
-                                margin-bottom: 1rem;
-                                color: #667eea;
-                            }
-                            p {
-                                margin-bottom: 2rem;
-                                color: #ccc;
-                            }
-                            .btn {
-                                display: inline-block;
-                                padding: 1rem 2rem;
-                                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-                                color: white;
-                                text-decoration: none;
-                                border-radius: 8px;
-                                font-weight: 600;
-                                transition: transform 0.3s;
-                            }
-                            .btn:hover {
-                                transform: translateY(-2px);
-                            }
-                            .loading {
-                                margin-top: 1rem;
-                                color: #999;
-                                font-size: 0.9rem;
-                            }
-                            .spinner {
-                                border: 3px solid #333;
-                                border-top: 3px solid #667eea;
-                                border-radius: 50%;
-                                width: 40px;
-                                height: 40px;
-                                animation: spin 1s linear infinite;
-                                margin: 2rem auto;
-                            }
-                            @keyframes spin {
-                                0% { transform: rotate(0deg); }
-                                100% { transform: rotate(360deg); }
-                            }
-                            video {
-                                max-width: 100%;
-                                max-height: 80vh;
-                            }
-                        </style>
-                    </head>
-                    <body>
-                        <div class="container" id="container">
-                            <div class="spinner"></div>
-                            <h2>Cargando video desde Google Drive...</h2>
-                            <p>Si el video no carga automáticamente, haz clic en el botón de abajo:</p>
-                            <a href="${downloadUrl}" target="_blank" class="btn">📥 Ver Video en Google Drive</a>
-                            <div class="loading">
-                                <small>Nota: Los videos grandes pueden tardar en cargar.</small>
-                            </div>
-                        </div>
-                        <script>
-                            // Try to load the video
-                            const video = document.createElement('video');
-                            video.controls = true;
-                            video.style.display = 'none';
-                            video.src = '${downloadUrl}';
-                            
-                            video.addEventListener('loadeddata', function() {
-                                document.getElementById('container').innerHTML = '';
-                                document.getElementById('container').appendChild(video);
-                                video.style.display = 'block';
-                                video.play().catch(e => console.log('Autoplay prevented'));
-                            });
-                            
-                            video.addEventListener('error', function() {
-                                document.getElementById('container').innerHTML = \`
-                                    <h2>⚠️ No se pudo cargar el video</h2>
-                                    <p>Google Drive no permite reproducir este video directamente.</p>
-                                    <p>Por favor, usa una de estas opciones:</p>
-                                    <a href="${downloadUrl}" target="_blank" class="btn">📥 Abrir en Google Drive</a>
-                                    <div class="loading">
-                                        <small>Recomendación: Sube tus videos a YouTube para mejor compatibilidad.</small>
-                                    </div>
-                                \`;
-                            });
-                            
-                            document.body.appendChild(video);
-                        </script>
-                    </body>
-                    </html>
-                `;
-                videoPlayer.style.display = 'block';
+                // Use Google Drive preview format for iframe
+                videoPlayer.src = `https://drive.google.com/file/d/${fileId}/preview`;
             }
             
             // Load resources
