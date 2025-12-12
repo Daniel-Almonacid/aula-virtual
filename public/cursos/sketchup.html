@@ -124,7 +124,8 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
-        .video-container iframe {
+        .video-container iframe,
+        .video-container video {
             position: absolute;
             top: 0;
             left: 0;
@@ -441,20 +442,24 @@
     <div class="course-layout">
         <!-- Content Area -->
         <div class="content-area">
-            <div class="video-container">
+            <div class="video-container" id="videoContainer">
                 <iframe 
                     id="videoPlayer"
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ" 
+                    src="" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
+                    allowfullscreen
+                    style="display: none;">
                 </iframe>
+                <video id="mp4Player" controls style="display: none;">
+                    Tu navegador no soporta el elemento de video.
+                </video>
             </div>
 
             <div class="video-info">
-                <h2 id="currentTopicTitle">Módulo 1 - Tema 1: Qué es SketchUp</h2>
-                <p id="currentTopicDescription">Introducción al software SketchUp, sus características principales y aplicaciones en diseño 3D.</p>
-                <p><strong>Duración:</strong> <span id="currentTopicDuration">5 minutos</span></p>
+                <h2 id="currentTopicTitle">Cargando...</h2>
+                <p id="currentTopicDescription">Cargando contenido...</p>
+                <p><strong>Duración:</strong> <span id="currentTopicDuration">-</span></p>
                 <p><strong>Nivel:</strong> Principiante</p>
             </div>
 
@@ -469,341 +474,221 @@
             <!-- Modules and Themes -->
             <div class="sidebar-section">
                 <h3>📚 Contenido del Curso</h3>
-                
-                <!-- Módulo 1 -->
-                <div class="module-item">
-                    <div class="module-header active" onclick="toggleModule(1)">
-                        <span class="module-expand-icon expanded" id="expand-icon-1">▶</span>
-                        <span class="module-icon">📖</span>
-                        <div class="module-info">
-                            <div class="module-title">Módulo 1: Introducción a SketchUp</div>
-                            <div class="module-duration">25 min • 5 temas</div>
-                        </div>
-                    </div>
-                    <div class="themes-list expanded" id="themes-1">
-                        <div class="theme-item active" onclick="loadTheme(1, 1)">
-                            <span class="theme-icon">▶</span>
-                            <div class="theme-info">
-                                <div class="theme-title">1.1 Qué es SketchUp</div>
-                                <div class="theme-duration">5 min</div>
-                            </div>
-                        </div>
-                        <div class="theme-item" onclick="loadTheme(1, 2)">
-                            <span class="theme-icon">🔒</span>
-                            <div class="theme-info">
-                                <div class="theme-title">1.2 Interfaz del programa</div>
-                                <div class="theme-duration">5 min</div>
-                            </div>
-                        </div>
-                        <div class="theme-item" onclick="loadTheme(1, 3)">
-                            <span class="theme-icon">🔒</span>
-                            <div class="theme-info">
-                                <div class="theme-title">1.3 Herramientas básicas</div>
-                                <div class="theme-duration">5 min</div>
-                            </div>
-                        </div>
-                        <div class="theme-item" onclick="loadTheme(1, 4)">
-                            <span class="theme-icon">🔒</span>
-                            <div class="theme-info">
-                                <div class="theme-title">1.4 Navegación en 3D</div>
-                                <div class="theme-duration">5 min</div>
-                            </div>
-                        </div>
-                        <div class="theme-item" onclick="loadTheme(1, 5)">
-                            <span class="theme-icon">🔒</span>
-                            <div class="theme-info">
-                                <div class="theme-title">1.5 Primer proyecto simple</div>
-                                <div class="theme-duration">5 min</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Módulo 2 -->
-                <div class="module-item">
-                    <div class="module-header" onclick="toggleModule(2)">
-                        <span class="module-expand-icon" id="expand-icon-2">▶</span>
-                        <span class="module-icon">🔧</span>
-                        <div class="module-info">
-                            <div class="module-title">Módulo 2: Herramientas Básicas</div>
-                            <div class="module-duration">30 min • 5 temas</div>
-                        </div>
-                    </div>
-                    <div class="themes-list" id="themes-2">
-                        <div class="theme-item" onclick="loadTheme(2, 1)">
-                            <span class="theme-icon">🔒</span>
-                            <div class="theme-info">
-                                <div class="theme-title">2.1 Línea y Lápiz</div>
-                                <div class="theme-duration">6 min</div>
-                            </div>
-                        </div>
-                        <div class="theme-item" onclick="loadTheme(2, 2)">
-                            <span class="theme-icon">🔒</span>
-                            <div class="theme-info">
-                                <div class="theme-title">2.2 Rectángulo y Círculo</div>
-                                <div class="theme-duration">6 min</div>
-                            </div>
-                        </div>
-                        <div class="theme-item" onclick="loadTheme(2, 3)">
-                            <span class="theme-icon">🔒</span>
-                            <div class="theme-info">
-                                <div class="theme-title">2.3 Empujar/Tirar</div>
-                                <div class="theme-duration">6 min</div>
-                            </div>
-                        </div>
-                        <div class="theme-item" onclick="loadTheme(2, 4)">
-                            <span class="theme-icon">🔒</span>
-                            <div class="theme-info">
-                                <div class="theme-title">2.4 Mover y Copiar</div>
-                                <div class="theme-duration">6 min</div>
-                            </div>
-                        </div>
-                        <div class="theme-item" onclick="loadTheme(2, 5)">
-                            <span class="theme-icon">🔒</span>
-                            <div class="theme-info">
-                                <div class="theme-title">2.5 Rotar y Escalar</div>
-                                <div class="theme-duration">6 min</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Módulo 3 -->
-                <div class="module-item">
-                    <div class="module-header" onclick="toggleModule(3)">
-                        <span class="module-expand-icon" id="expand-icon-3">▶</span>
-                        <span class="module-icon">🏗️</span>
-                        <div class="module-info">
-                            <div class="module-title">Módulo 3: Modelado 3D Avanzado</div>
-                            <div class="module-duration">35 min • 5 temas</div>
-                        </div>
-                    </div>
-                    <div class="themes-list" id="themes-3">
-                        <div class="theme-item" onclick="loadTheme(3, 1)">
-                            <span class="theme-icon">🔒</span>
-                            <div class="theme-info">
-                                <div class="theme-title">3.1 Grupos y Componentes</div>
-                                <div class="theme-duration">7 min</div>
-                            </div>
-                        </div>
-                        <div class="theme-item" onclick="loadTheme(3, 2)">
-                            <span class="theme-icon">🔒</span>
-                            <div class="theme-info">
-                                <div class="theme-title">3.2 Capas y organización</div>
-                                <div class="theme-duration">7 min</div>
-                            </div>
-                        </div>
-                        <div class="theme-item" onclick="loadTheme(3, 3)">
-                            <span class="theme-icon">🔒</span>
-                            <div class="theme-info">
-                                <div class="theme-title">3.3 Sígueme (Follow Me)</div>
-                                <div class="theme-duration">7 min</div>
-                            </div>
-                        </div>
-                        <div class="theme-item" onclick="loadTheme(3, 4)">
-                            <span class="theme-icon">🔒</span>
-                            <div class="theme-info">
-                                <div class="theme-title">3.4 Intersectar y Dividir</div>
-                                <div class="theme-duration">7 min</div>
-                            </div>
-                        </div>
-                        <div class="theme-item" onclick="loadTheme(3, 5)">
-                            <span class="theme-icon">🔒</span>
-                            <div class="theme-info">
-                                <div class="theme-title">3.5 Técnicas de modelado</div>
-                                <div class="theme-duration">7 min</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Módulo 4 -->
-                <div class="module-item">
-                    <div class="module-header" onclick="toggleModule(4)">
-                        <span class="module-expand-icon" id="expand-icon-4">▶</span>
-                        <span class="module-icon">🪑</span>
-                        <div class="module-info">
-                            <div class="module-title">Módulo 4: Diseño de Muebles</div>
-                            <div class="module-duration">40 min • 5 temas</div>
-                        </div>
-                    </div>
-                    <div class="themes-list" id="themes-4">
-                        <div class="theme-item" onclick="loadTheme(4, 1)">
-                            <span class="theme-icon">🔒</span>
-                            <div class="theme-info">
-                                <div class="theme-title">4.1 Diseño de una mesa</div>
-                                <div class="theme-duration">8 min</div>
-                            </div>
-                        </div>
-                        <div class="theme-item" onclick="loadTheme(4, 2)">
-                            <span class="theme-icon">🔒</span>
-                            <div class="theme-info">
-                                <div class="theme-title">4.2 Diseño de una silla</div>
-                                <div class="theme-duration">8 min</div>
-                            </div>
-                        </div>
-                        <div class="theme-item" onclick="loadTheme(4, 3)">
-                            <span class="theme-icon">🔒</span>
-                            <div class="theme-info">
-                                <div class="theme-title">4.3 Diseño de un armario</div>
-                                <div class="theme-duration">8 min</div>
-                            </div>
-                        </div>
-                        <div class="theme-item" onclick="loadTheme(4, 4)">
-                            <span class="theme-icon">🔒</span>
-                            <div class="theme-info">
-                                <div class="theme-title">4.4 Materiales y texturas</div>
-                                <div class="theme-duration">8 min</div>
-                            </div>
-                        </div>
-                        <div class="theme-item" onclick="loadTheme(4, 5)">
-                            <span class="theme-icon">🔒</span>
-                            <div class="theme-info">
-                                <div class="theme-title">4.5 Renderizado básico</div>
-                                <div class="theme-duration">8 min</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Módulo 5 -->
-                <div class="module-item">
-                    <div class="module-header" onclick="toggleModule(5)">
-                        <span class="module-expand-icon" id="expand-icon-5">▶</span>
-                        <span class="module-icon">🎯</span>
-                        <div class="module-info">
-                            <div class="module-title">Módulo 5: Proyecto Final</div>
-                            <div class="module-duration">60 min • 5 temas</div>
-                        </div>
-                    </div>
-                    <div class="themes-list" id="themes-5">
-                        <div class="theme-item" onclick="loadTheme(5, 1)">
-                            <span class="theme-icon">🔒</span>
-                            <div class="theme-info">
-                                <div class="theme-title">5.1 Planificación del proyecto</div>
-                                <div class="theme-duration">12 min</div>
-                            </div>
-                        </div>
-                        <div class="theme-item" onclick="loadTheme(5, 2)">
-                            <span class="theme-icon">🔒</span>
-                            <div class="theme-info">
-                                <div class="theme-title">5.2 Modelado completo</div>
-                                <div class="theme-duration">12 min</div>
-                            </div>
-                        </div>
-                        <div class="theme-item" onclick="loadTheme(5, 3)">
-                            <span class="theme-icon">🔒</span>
-                            <div class="theme-info">
-                                <div class="theme-title">5.3 Aplicación de materiales</div>
-                                <div class="theme-duration">12 min</div>
-                            </div>
-                        </div>
-                        <div class="theme-item" onclick="loadTheme(5, 4)">
-                            <span class="theme-icon">🔒</span>
-                            <div class="theme-info">
-                                <div class="theme-title">5.4 Presentación del proyecto</div>
-                                <div class="theme-duration">12 min</div>
-                            </div>
-                        </div>
-                        <div class="theme-item" onclick="loadTheme(5, 5)">
-                            <span class="theme-icon">🔒</span>
-                            <div class="theme-info">
-                                <div class="theme-title">5.5 Exportación y entrega</div>
-                                <div class="theme-duration">12 min</div>
-                            </div>
-                        </div>
-                    </div>
+                <div id="modulesContainer">
+                    <!-- Modules will be dynamically loaded here -->
                 </div>
             </div>
 
             <!-- Resources -->
             <div class="sidebar-section">
                 <h3>📂 Recursos Descargables</h3>
-                <div class="resource-item">
-                    <span class="resource-icon">📄</span>
-                    <div class="resource-info">
-                        <div class="resource-name">Manual SketchUp.pdf</div>
-                        <div class="resource-size">2.5 MB</div>
-                    </div>
-                    <button class="btn-download" onclick="downloadResource('manual')">
-                        ⬇
-                    </button>
-                </div>
-                <div class="resource-item">
-                    <span class="resource-icon">📦</span>
-                    <div class="resource-info">
-                        <div class="resource-name">Archivos de práctica.zip</div>
-                        <div class="resource-size">15.3 MB</div>
-                    </div>
-                    <button class="btn-download" onclick="downloadResource('practice')">
-                        ⬇
-                    </button>
+                <div id="resourcesContainer">
+                    <!-- Resources will be dynamically loaded here -->
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Course data structure
-        const courseData = {
-            1: {
-                1: { title: "Módulo 1 - Tema 1: Qué es SketchUp", description: "Introducción al software SketchUp, sus características principales y aplicaciones en diseño 3D.", duration: "5 min", video: "dQw4w9WgXcQ" },
-                2: { title: "Módulo 1 - Tema 2: Interfaz del programa", description: "Conoce la interfaz de SketchUp, sus paneles, herramientas y cómo personalizarla.", duration: "5 min", video: "dQw4w9WgXcQ" },
-                3: { title: "Módulo 1 - Tema 3: Herramientas básicas", description: "Primeras herramientas esenciales para comenzar a modelar en 3D.", duration: "5 min", video: "dQw4w9WgXcQ" },
-                4: { title: "Módulo 1 - Tema 4: Navegación en 3D", description: "Aprende a moverte en el espacio 3D, rotar, zoom y orbitar la cámara.", duration: "5 min", video: "dQw4w9WgXcQ" },
-                5: { title: "Módulo 1 - Tema 5: Primer proyecto simple", description: "Crea tu primer modelo 3D simple aplicando lo aprendido.", duration: "5 min", video: "dQw4w9WgXcQ" }
-            },
-            2: {
-                1: { title: "Módulo 2 - Tema 1: Línea y Lápiz", description: "Herramienta de línea y lápiz para crear formas 2D básicas.", duration: "6 min", video: "dQw4w9WgXcQ" },
-                2: { title: "Módulo 2 - Tema 2: Rectángulo y Círculo", description: "Creación de rectángulos y círculos perfectos.", duration: "6 min", video: "dQw4w9WgXcQ" },
-                3: { title: "Módulo 2 - Tema 3: Empujar/Tirar", description: "Convierte formas 2D en objetos 3D con Push/Pull.", duration: "6 min", video: "dQw4w9WgXcQ" },
-                4: { title: "Módulo 2 - Tema 4: Mover y Copiar", description: "Mueve y duplica objetos con precisión.", duration: "6 min", video: "dQw4w9WgXcQ" },
-                5: { title: "Módulo 2 - Tema 5: Rotar y Escalar", description: "Rota y cambia el tamaño de tus modelos.", duration: "6 min", video: "dQw4w9WgXcQ" }
-            },
-            // Add remaining modules...
-        };
-
+        // Global variables
+        let courseData = null;
+        let currentModule = null;
+        let currentTheme = null;
         let completedThemes = [];
-        const totalThemes = 25; // 5 modules × 5 themes
+        let totalThemes = 0;
+
+        // Load course data from JSON
+        async function loadCourseData() {
+            try {
+                const response = await fetch('../../data/course-content-full.json');
+                const data = await response.json();
+                courseData = data.sketchup;
+                
+                if (!courseData) {
+                    console.error('SketchUp course data not found in JSON');
+                    return;
+                }
+                
+                // Count total themes
+                Object.keys(courseData).forEach(moduleKey => {
+                    if (moduleKey.startsWith('modulo')) {
+                        const module = courseData[moduleKey];
+                        Object.keys(module.temas).forEach(themeKey => {
+                            totalThemes++;
+                        });
+                    }
+                });
+                
+                // Render modules
+                renderModules();
+                
+                // Load first theme by default
+                loadTheme('modulo1', 'tema1');
+                
+            } catch (error) {
+                console.error('Error loading course data:', error);
+                document.getElementById('currentTopicTitle').textContent = 'Error al cargar el curso';
+                document.getElementById('currentTopicDescription').textContent = 'No se pudo cargar el contenido del curso. Por favor, intenta nuevamente.';
+            }
+        }
+
+        // Render all modules and themes
+        function renderModules() {
+            const container = document.getElementById('modulesContainer');
+            container.innerHTML = '';
+            
+            // Get module keys and sort them
+            const moduleKeys = Object.keys(courseData)
+                .filter(key => key.startsWith('modulo'))
+                .sort();
+            
+            moduleKeys.forEach((moduleKey, moduleIndex) => {
+                const module = courseData[moduleKey];
+                const moduleNumber = moduleIndex + 1;
+                
+                // Count themes in this module
+                const themeCount = Object.keys(module.temas).length;
+                
+                // Create module element
+                const moduleDiv = document.createElement('div');
+                moduleDiv.className = 'module-item';
+                moduleDiv.innerHTML = `
+                    <div class="module-header" onclick="toggleModule('${moduleKey}')" id="header-${moduleKey}">
+                        <span class="module-expand-icon ${moduleIndex === 0 ? 'expanded' : ''}" id="expand-icon-${moduleKey}">▶</span>
+                        <span class="module-icon">📖</span>
+                        <div class="module-info">
+                            <div class="module-title">${module.titulo}</div>
+                            <div class="module-duration">${themeCount} temas</div>
+                        </div>
+                    </div>
+                    <div class="themes-list ${moduleIndex === 0 ? 'expanded' : ''}" id="themes-${moduleKey}">
+                        ${renderThemes(moduleKey, module.temas)}
+                    </div>
+                `;
+                
+                container.appendChild(moduleDiv);
+            });
+        }
+
+        // Render themes for a module
+        function renderThemes(moduleKey, themes) {
+            const themeKeys = Object.keys(themes).sort();
+            
+            return themeKeys.map((themeKey, index) => {
+                const theme = themes[themeKey];
+                const isFirst = moduleKey === 'modulo1' && themeKey === 'tema1';
+                
+                return `
+                    <div class="theme-item ${isFirst ? 'active' : ''}" onclick="loadTheme('${moduleKey}', '${themeKey}')" data-module="${moduleKey}" data-theme="${themeKey}">
+                        <span class="theme-icon">▶</span>
+                        <div class="theme-info">
+                            <div class="theme-title">${theme.titulo}</div>
+                            <div class="theme-duration">${theme.duracion}</div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
 
         // Toggle module expansion
-        function toggleModule(moduleId) {
-            const themesList = document.getElementById(`themes-${moduleId}`);
-            const expandIcon = document.getElementById(`expand-icon-${moduleId}`);
+        function toggleModule(moduleKey) {
+            const themesList = document.getElementById(`themes-${moduleKey}`);
+            const expandIcon = document.getElementById(`expand-icon-${moduleKey}`);
             
             themesList.classList.toggle('expanded');
             expandIcon.classList.toggle('expanded');
         }
 
         // Load specific theme
-        function loadTheme(moduleId, themeId) {
-            const themeData = courseData[moduleId]?.[themeId];
-            if (!themeData) return;
-
+        function loadTheme(moduleKey, themeKey) {
+            if (!courseData || !courseData[moduleKey] || !courseData[moduleKey].temas[themeKey]) {
+                console.error('Theme not found:', moduleKey, themeKey);
+                return;
+            }
+            
+            const theme = courseData[moduleKey].temas[themeKey];
+            currentModule = moduleKey;
+            currentTheme = themeKey;
+            
             // Update content
-            document.getElementById('currentTopicTitle').textContent = themeData.title;
-            document.getElementById('currentTopicDescription').textContent = themeData.description;
-            document.getElementById('currentTopicDuration').textContent = themeData.duration;
-            document.getElementById('videoPlayer').src = `https://www.youtube.com/embed/${themeData.video}`;
-
+            document.getElementById('currentTopicTitle').textContent = theme.titulo;
+            document.getElementById('currentTopicDescription').textContent = theme.descripcion;
+            document.getElementById('currentTopicDuration').textContent = theme.duracion;
+            
+            // Load video based on type
+            const videoPlayer = document.getElementById('videoPlayer');
+            const mp4Player = document.getElementById('mp4Player');
+            
+            if (theme.tipo_video === 'youtube') {
+                // YouTube video
+                videoPlayer.src = `https://www.youtube.com/embed/${theme.video}`;
+                videoPlayer.style.display = 'block';
+                mp4Player.style.display = 'none';
+            } else if (theme.tipo_video === 'mp4') {
+                // MP4 video from Google Drive
+                mp4Player.src = theme.video;
+                mp4Player.style.display = 'block';
+                videoPlayer.style.display = 'none';
+            }
+            
+            // Load resources
+            renderResources(theme.recursos || []);
+            
             // Update active states
             document.querySelectorAll('.theme-item').forEach(item => item.classList.remove('active'));
             document.querySelectorAll('.module-header').forEach(header => header.classList.remove('active'));
             
-            event.target.closest('.theme-item').classList.add('active');
-            event.target.closest('.module-item').querySelector('.module-header').classList.add('active');
+            const activeTheme = document.querySelector(`[data-module="${moduleKey}"][data-theme="${themeKey}"]`);
+            if (activeTheme) {
+                activeTheme.classList.add('active');
+                const moduleHeader = document.getElementById(`header-${moduleKey}`);
+                if (moduleHeader) {
+                    moduleHeader.classList.add('active');
+                }
+            }
+        }
+
+        // Render resources
+        function renderResources(resources) {
+            const container = document.getElementById('resourcesContainer');
+            
+            if (!resources || resources.length === 0) {
+                container.innerHTML = '<p style="color: #666; text-align: center;">No hay recursos disponibles para este tema.</p>';
+                return;
+            }
+            
+            container.innerHTML = resources.map((resource, index) => `
+                <div class="resource-item">
+                    <span class="resource-icon">📄</span>
+                    <div class="resource-info">
+                        <div class="resource-name">${resource.nombre}</div>
+                        <div class="resource-size">${resource.tipo || 'Archivo'}</div>
+                    </div>
+                    <button class="btn-download" onclick="downloadResource('${resource.url}', '${resource.nombre}')">
+                        ⬇
+                    </button>
+                </div>
+            `).join('');
         }
 
         // Mark theme as completed
         function markAsCompleted() {
-            const activeTheme = document.querySelector('.theme-item.active');
+            if (!currentModule || !currentTheme) return;
+            
+            const activeTheme = document.querySelector(`[data-module="${currentModule}"][data-theme="${currentTheme}"]`);
             if (!activeTheme) return;
+
+            const themeId = `${currentModule}-${currentTheme}`;
+            if (completedThemes.includes(themeId)) {
+                alert('Este tema ya está completado ✓');
+                return;
+            }
 
             activeTheme.classList.add('completed');
             activeTheme.querySelector('.theme-icon').textContent = '✓';
 
             // Update progress
-            completedThemes.push(activeTheme);
+            completedThemes.push(themeId);
             updateProgress();
 
             alert('¡Tema completado! 🎉');
@@ -811,6 +696,8 @@
 
         // Update progress bar
         function updateProgress() {
+            if (totalThemes === 0) return;
+            
             const progress = (completedThemes.length / totalThemes) * 100;
             document.getElementById('progressFill').style.width = progress + '%';
             document.getElementById('progressPercentage').textContent = Math.round(progress) + '%';
@@ -822,12 +709,21 @@
         }
 
         // Download resource
-        function downloadResource(type) {
-            alert(`Descargando recurso: ${type}...`);
+        function downloadResource(url, name) {
+            if (!url) {
+                alert('URL de recurso no disponible');
+                return;
+            }
+            window.open(url, '_blank');
         }
 
-        // Initialize
-        updateProgress();
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Only load if authenticated
+            if (sessionStorage.getItem('authenticated_' + courseId) === 'true') {
+                loadCourseData();
+            }
+        });
     </script>
 </body>
 </html>
