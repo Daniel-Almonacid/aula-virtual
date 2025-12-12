@@ -561,8 +561,50 @@
             
             const videoPlayer = document.getElementById('videoPlayer');
             
-            if (theme.tipo_video === 'youtube') {
+            // Check if video is configured
+            if (!theme.video || theme.video.trim() === '') {
+                // No video configured - show message
+                videoPlayer.srcdoc = `
+                    <html>
+                    <head>
+                        <style>
+                            body {
+                                margin: 0;
+                                padding: 0;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                height: 100vh;
+                                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                                color: white;
+                                font-family: Arial, sans-serif;
+                                text-align: center;
+                            }
+                            .container {
+                                padding: 2rem;
+                            }
+                            h2 {
+                                font-size: 2rem;
+                                margin-bottom: 1rem;
+                            }
+                            p {
+                                font-size: 1.1rem;
+                                opacity: 0.9;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <div class="container">
+                            <h2>🎬 Video no disponible</h2>
+                            <p>Este tema aún no tiene un video configurado.</p>
+                            <p>Por favor, contacta al instructor.</p>
+                        </div>
+                    </body>
+                    </html>
+                `;
+            } else if (theme.tipo_video === 'youtube') {
                 videoPlayer.src = `https://www.youtube.com/embed/${theme.video}`;
+                videoPlayer.srcdoc = '';
             } else if (theme.tipo_video === 'mp4') {
                 let fileId = theme.video;
                 if (theme.video.includes('drive.google.com')) {
@@ -570,6 +612,7 @@
                     if (match) fileId = match[0];
                 }
                 videoPlayer.src = `https://drive.google.com/file/d/${fileId}/preview`;
+                videoPlayer.srcdoc = '';
             }
             
             renderResources(theme.recursos || []);
