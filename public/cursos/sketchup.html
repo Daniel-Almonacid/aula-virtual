@@ -448,12 +448,8 @@
                     src="" 
                     frameborder="0" 
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen
-                    style="display: none;">
+                    allowfullscreen>
                 </iframe>
-                <video id="mp4Player" controls style="display: none;">
-                    Tu navegador no soporta el elemento de video.
-                </video>
             </div>
 
             <div class="video-info">
@@ -500,7 +496,14 @@
         // Load course data from JSON
         async function loadCourseData() {
             try {
-                const response = await fetch('../../data/course-content-full.json');
+                // Try relative path first, then absolute path for GitHub Pages
+                let response;
+                try {
+                    response = await fetch('../../data/course-content-full.json');
+                } catch (e) {
+                    // Fallback to absolute path
+                    response = await fetch('/aula-virtual/data/course-content-full.json');
+                }
                 const data = await response.json();
                 courseData = data.sketchup;
                 
@@ -617,18 +620,25 @@
             
             // Load video based on type
             const videoPlayer = document.getElementById('videoPlayer');
-            const mp4Player = document.getElementById('mp4Player');
             
             if (theme.tipo_video === 'youtube') {
                 // YouTube video
                 videoPlayer.src = `https://www.youtube.com/embed/${theme.video}`;
-                videoPlayer.style.display = 'block';
-                mp4Player.style.display = 'none';
             } else if (theme.tipo_video === 'mp4') {
                 // MP4 video from Google Drive
-                mp4Player.src = theme.video;
-                mp4Player.style.display = 'block';
-                videoPlayer.style.display = 'none';
+                // Extract file ID from the URL if it's a full Drive URL
+                let fileId = theme.video;
+                
+                // Check if it's a full Drive URL and extract the ID
+                if (theme.video.includes('drive.google.com')) {
+                    const idMatch = theme.video.match(/[-\w]{25,}/);
+                    if (idMatch) {
+                        fileId = idMatch[0];
+                    }
+                }
+                
+                // Use Google Drive preview format for iframe
+                videoPlayer.src = `https://drive.google.com/file/d/${fileId}/preview`;
             }
             
             // Load resources
