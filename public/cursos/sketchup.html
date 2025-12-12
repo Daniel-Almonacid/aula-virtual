@@ -18,7 +18,6 @@
             min-height: 100vh;
         }
 
-        /* Navbar */
         nav {
             background: rgba(0, 0, 0, 0.3);
             backdrop-filter: blur(10px);
@@ -58,7 +57,6 @@
             font-weight: 600;
         }
 
-        /* Progress Bar */
         .progress-container {
             background: white;
             padding: 1.5rem 2rem;
@@ -99,13 +97,11 @@
             border-radius: 10px;
         }
 
-        /* Main Layout */
         .course-layout {
             display: flex;
             min-height: calc(100vh - 200px);
         }
 
-        /* Content Area */
         .content-area {
             flex: 1;
             padding: 2rem;
@@ -124,8 +120,7 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
 
-        .video-container iframe,
-        .video-container video {
+        .video-container iframe {
             position: absolute;
             top: 0;
             left: 0;
@@ -182,7 +177,6 @@
             background: #e9ecef;
         }
 
-        /* Sidebar */
         .sidebar {
             width: 400px;
             background: #f8f9fa;
@@ -202,7 +196,6 @@
             border-bottom: 2px solid #667eea;
         }
 
-        /* Modules with expandable themes */
         .module-item {
             margin-bottom: 0.5rem;
             background: white;
@@ -257,7 +250,6 @@
             opacity: 0.8;
         }
 
-        /* Themes List (collapsed by default) */
         .themes-list {
             max-height: 0;
             overflow: hidden;
@@ -311,7 +303,6 @@
             opacity: 0.7;
         }
 
-        /* Resources */
         .resource-item {
             display: flex;
             align-items: center;
@@ -361,11 +352,9 @@
             .course-layout {
                 flex-direction: column;
             }
-
             .sidebar {
                 width: 100%;
             }
-
             .video-controls {
                 flex-direction: column;
             }
@@ -388,11 +377,9 @@
     </div>
 
     <script>
-        // Check if already authenticated
         const courseId = 'sketchup';
         const correctPassword = 'al777***';
         
-        // Check session storage
         if (sessionStorage.getItem('authenticated_' + courseId) === 'true') {
             document.getElementById('loginScreen').style.display = 'none';
         }
@@ -402,20 +389,17 @@
             const errorMsg = document.getElementById('errorMessage');
             
             if (password === correctPassword) {
-                // Store authentication in session
                 sessionStorage.setItem('authenticated_' + courseId, 'true');
-                // Hide login screen
                 document.getElementById('loginScreen').style.display = 'none';
                 errorMsg.style.display = 'none';
+                loadCourseData();
             } else {
-                // Show error
                 errorMsg.style.display = 'block';
                 document.getElementById('coursePassword').value = '';
                 document.getElementById('coursePassword').focus();
             }
         }
         
-        // Focus on password input
         document.getElementById('coursePassword').focus();
     </script>
 
@@ -442,7 +426,7 @@
     <div class="course-layout">
         <!-- Content Area -->
         <div class="content-area">
-            <div class="video-container" id="videoContainer">
+            <div class="video-container">
                 <iframe 
                     id="videoPlayer"
                     src="" 
@@ -453,9 +437,9 @@
             </div>
 
             <div class="video-info">
-                <h2 id="currentTopicTitle">Cargando...</h2>
-                <p id="currentTopicDescription">Cargando contenido...</p>
-                <p><strong>Duración:</strong> <span id="currentTopicDuration">-</span></p>
+                <h2 id="currentTopicTitle">Módulo 1 - Tema 1: Qué es SketchUp</h2>
+                <p id="currentTopicDescription">Introducción al software SketchUp, sus características principales y aplicaciones en diseño 3D.</p>
+                <p><strong>Duración:</strong> <span id="currentTopicDuration">5 min</span></p>
                 <p><strong>Nivel:</strong> Principiante</p>
             </div>
 
@@ -467,104 +451,66 @@
 
         <!-- Sidebar -->
         <div class="sidebar">
-            <!-- Modules and Themes -->
             <div class="sidebar-section">
                 <h3>📚 Contenido del Curso</h3>
-                <div id="modulesContainer">
-                    <!-- Modules will be dynamically loaded here -->
-                </div>
+                <div id="modulesContainer"></div>
             </div>
 
-            <!-- Resources -->
             <div class="sidebar-section">
                 <h3>📂 Recursos Descargables</h3>
                 <div id="resourcesContainer">
-                    <!-- Resources will be dynamically loaded here -->
+                    <p style="color: #666; text-align: center; padding: 1rem;">No hay recursos para este tema</p>
                 </div>
             </div>
         </div>
     </div>
 
     <script>
-        // Global variables
         let courseData = null;
         let currentModule = null;
         let currentTheme = null;
         let completedThemes = [];
-        let totalThemes = 0;
+        let totalThemes = 25;
 
-        // Load course data from JSON
         async function loadCourseData() {
             try {
-                // Try relative path first, then absolute path for GitHub Pages
-                let response;
-                try {
-                    response = await fetch('../../data/course-content-full.json');
-                } catch (e) {
-                    // Fallback to absolute path
-                    response = await fetch('/aula-virtual/data/course-content-full.json');
-                }
+                const response = await fetch('../../data/course-content-full.json');
                 const data = await response.json();
                 courseData = data.sketchup;
                 
-                if (!courseData) {
-                    console.error('SketchUp course data not found in JSON');
-                    return;
+                if (courseData) {
+                    renderModules();
+                    loadTheme('modulo1', 'tema1');
                 }
-                
-                // Count total themes
-                Object.keys(courseData).forEach(moduleKey => {
-                    if (moduleKey.startsWith('modulo')) {
-                        const module = courseData[moduleKey];
-                        Object.keys(module.temas).forEach(themeKey => {
-                            totalThemes++;
-                        });
-                    }
-                });
-                
-                // Render modules
-                renderModules();
-                
-                // Load first theme by default
-                loadTheme('modulo1', 'tema1');
-                
             } catch (error) {
                 console.error('Error loading course data:', error);
                 document.getElementById('currentTopicTitle').textContent = 'Error al cargar el curso';
-                document.getElementById('currentTopicDescription').textContent = 'No se pudo cargar el contenido del curso. Por favor, intenta nuevamente.';
+                document.getElementById('currentTopicDescription').textContent = 'No se pudo cargar el contenido.';
             }
         }
 
-        // Render all modules and themes
         function renderModules() {
             const container = document.getElementById('modulesContainer');
             container.innerHTML = '';
             
-            // Get module keys and sort them
-            const moduleKeys = Object.keys(courseData)
-                .filter(key => key.startsWith('modulo'))
-                .sort();
+            const moduleKeys = Object.keys(courseData).filter(key => key.startsWith('modulo')).sort();
             
-            moduleKeys.forEach((moduleKey, moduleIndex) => {
+            moduleKeys.forEach((moduleKey, index) => {
                 const module = courseData[moduleKey];
-                const moduleNumber = moduleIndex + 1;
-                
-                // Count themes in this module
                 const themeCount = Object.keys(module.temas).length;
                 
-                // Create module element
                 const moduleDiv = document.createElement('div');
                 moduleDiv.className = 'module-item';
                 moduleDiv.innerHTML = `
-                    <div class="module-header" onclick="toggleModule('${moduleKey}')" id="header-${moduleKey}">
-                        <span class="module-expand-icon ${moduleIndex === 0 ? 'expanded' : ''}" id="expand-icon-${moduleKey}">▶</span>
+                    <div class="module-header ${index === 0 ? 'active' : ''}" onclick="toggleModule('${moduleKey}')" id="header-${moduleKey}">
+                        <span class="module-expand-icon ${index === 0 ? 'expanded' : ''}" id="expand-icon-${moduleKey}">▶</span>
                         <span class="module-icon">📖</span>
                         <div class="module-info">
                             <div class="module-title">${module.titulo}</div>
                             <div class="module-duration">${themeCount} temas</div>
                         </div>
                     </div>
-                    <div class="themes-list ${moduleIndex === 0 ? 'expanded' : ''}" id="themes-${moduleKey}">
+                    <div class="themes-list ${index === 0 ? 'expanded' : ''}" id="themes-${moduleKey}">
                         ${renderThemes(moduleKey, module.temas)}
                     </div>
                 `;
@@ -573,7 +519,6 @@
             });
         }
 
-        // Render themes for a module
         function renderThemes(moduleKey, themes) {
             const themeKeys = Object.keys(themes).sort();
             
@@ -593,7 +538,6 @@
             }).join('');
         }
 
-        // Toggle module expansion
         function toggleModule(moduleKey) {
             const themesList = document.getElementById(`themes-${moduleKey}`);
             const expandIcon = document.getElementById(`expand-icon-${moduleKey}`);
@@ -602,10 +546,8 @@
             expandIcon.classList.toggle('expanded');
         }
 
-        // Load specific theme
         function loadTheme(moduleKey, themeKey) {
             if (!courseData || !courseData[moduleKey] || !courseData[moduleKey].temas[themeKey]) {
-                console.error('Theme not found:', moduleKey, themeKey);
                 return;
             }
             
@@ -613,75 +555,55 @@
             currentModule = moduleKey;
             currentTheme = themeKey;
             
-            // Update content
             document.getElementById('currentTopicTitle').textContent = theme.titulo;
             document.getElementById('currentTopicDescription').textContent = theme.descripcion;
             document.getElementById('currentTopicDuration').textContent = theme.duracion;
             
-            // Load video based on type
             const videoPlayer = document.getElementById('videoPlayer');
             
             if (theme.tipo_video === 'youtube') {
-                // YouTube video
                 videoPlayer.src = `https://www.youtube.com/embed/${theme.video}`;
             } else if (theme.tipo_video === 'mp4') {
-                // MP4 video from Google Drive
-                // Extract file ID from the URL if it's a full Drive URL
                 let fileId = theme.video;
-                
-                // Check if it's a full Drive URL and extract the ID
                 if (theme.video.includes('drive.google.com')) {
-                    const idMatch = theme.video.match(/[-\w]{25,}/);
-                    if (idMatch) {
-                        fileId = idMatch[0];
-                    }
+                    const match = theme.video.match(/[-\w]{25,}/);
+                    if (match) fileId = match[0];
                 }
-                
-                // Use Google Drive preview format for iframe
                 videoPlayer.src = `https://drive.google.com/file/d/${fileId}/preview`;
             }
             
-            // Load resources
             renderResources(theme.recursos || []);
             
-            // Update active states
             document.querySelectorAll('.theme-item').forEach(item => item.classList.remove('active'));
             document.querySelectorAll('.module-header').forEach(header => header.classList.remove('active'));
             
             const activeTheme = document.querySelector(`[data-module="${moduleKey}"][data-theme="${themeKey}"]`);
             if (activeTheme) {
                 activeTheme.classList.add('active');
-                const moduleHeader = document.getElementById(`header-${moduleKey}`);
-                if (moduleHeader) {
-                    moduleHeader.classList.add('active');
-                }
+                document.getElementById(`header-${moduleKey}`).classList.add('active');
             }
         }
 
-        // Render resources
         function renderResources(resources) {
             const container = document.getElementById('resourcesContainer');
             
             if (!resources || resources.length === 0) {
-                container.innerHTML = '<p style="color: #666; text-align: center;">No hay recursos disponibles para este tema.</p>';
+                container.innerHTML = '<p style="color: #666; text-align: center; padding: 1rem;">No hay recursos para este tema</p>';
                 return;
             }
             
-            container.innerHTML = resources.map((resource, index) => `
+            container.innerHTML = resources.map(resource => `
                 <div class="resource-item">
                     <span class="resource-icon">📄</span>
                     <div class="resource-info">
                         <div class="resource-name">${resource.nombre}</div>
                         <div class="resource-size">${resource.tipo || 'Archivo'}</div>
                     </div>
-                    <button class="btn-download" onclick="downloadResource('${resource.url}', '${resource.nombre}')">
-                        ⬇
-                    </button>
+                    <button class="btn-download" onclick="window.open('${resource.url}', '_blank')">⬇</button>
                 </div>
             `).join('');
         }
 
-        // Mark theme as completed
         function markAsCompleted() {
             if (!currentModule || !currentTheme) return;
             
@@ -696,44 +618,24 @@
 
             activeTheme.classList.add('completed');
             activeTheme.querySelector('.theme-icon').textContent = '✓';
-
-            // Update progress
             completedThemes.push(themeId);
             updateProgress();
-
             alert('¡Tema completado! 🎉');
         }
 
-        // Update progress bar
         function updateProgress() {
-            if (totalThemes === 0) return;
-            
             const progress = (completedThemes.length / totalThemes) * 100;
             document.getElementById('progressFill').style.width = progress + '%';
             document.getElementById('progressPercentage').textContent = Math.round(progress) + '%';
         }
 
-        // Ask question
         function askQuestion() {
-            alert('Función de preguntas en desarrollo. Pronto podrás hacer preguntas al instructor.');
+            alert('Función de preguntas en desarrollo.');
         }
 
-        // Download resource
-        function downloadResource(url, name) {
-            if (!url) {
-                alert('URL de recurso no disponible');
-                return;
-            }
-            window.open(url, '_blank');
+        if (sessionStorage.getItem('authenticated_' + courseId) === 'true') {
+            loadCourseData();
         }
-
-        // Initialize on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            // Only load if authenticated
-            if (sessionStorage.getItem('authenticated_' + courseId) === 'true') {
-                loadCourseData();
-            }
-        });
     </script>
 </body>
 </html>
